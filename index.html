@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Redaction Audits</title>
+  <script>
+    // Served under a sub-path (e.g. /projects/redaction); relative URLs need the trailing slash.
+    if (!location.pathname.endsWith("/") && !location.pathname.split("/").pop().includes(".")) {
+      location.replace(location.pathname + "/" + location.search + location.hash);
+    }
+    // Theme before first paint: "light" or "dark" if chosen, otherwise follow the system.
+    try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="#/">Redaction Audits</a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#/" data-nav="overview">Overview</a>
+        <a href="#/data" data-nav="data">Data</a>
+        <a href="#/runs" data-nav="runs">Runs</a>
+        <a href="#/notes" data-nav="notes">Notes</a>
+        <a href="#/paper" data-nav="paper">Paper</a>
+      </nav>
+      <button type="button" class="theme-btn" id="theme-btn" aria-label="Colour theme">Theme: auto</button>
+    </div>
+  </header>
+  <main class="wrap" id="view" tabindex="-1"></main>
+  <script src="app.js"></script>
+</body>
+</html>

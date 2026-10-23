@@ -1,0 +1,59 @@
+{
+ "built_at": "2026-10-23T13:28:46+00:00",
+ "ok": true,
+ "errors": [],
+ "seconds": 1.7,
+ "pdf": true,
+ "outline": [
+  {
+   "file": "sections/abstract.tex",
+   "title": "Abstract",
+   "words": 0
+  },
+  {
+   "file": "sections/introduction.tex",
+   "title": "Introduction",
+   "words": 0
+  },
+  {
+   "file": "sections/related.tex",
+   "title": "Related work",
+   "words": 0
+  },
+  {
+   "file": "sections/setting.tex",
+   "title": "Setting",
+   "words": 0
+  },
+  {
+   "file": "sections/benchmark.tex",
+   "title": "Benchmark",
+   "words": 4
+  },
+  {
+   "file": "sections/escalation.tex",
+   "title": "Redaction under escalation",
+   "words": 0
+  },
+  {
+   "file": "sections/detective.tex",
+   "title": "Redaction detective",
+   "words": 0
+  },
+  {
+   "file": "sections/results.tex",
+   "title": "Results",
+   "words": 5
+  },
+  {
+   "file": "sections/limitations.tex",
+   "title": "Limitations",
+   "words": 0
+  },
+  {
+   "file": "sections/appendix.tex",
+   "title": "Appendix",
+   "words": 0
+  }
+ ]
+}
