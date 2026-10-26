@@ -201,7 +201,7 @@ const tipper = (() => {
 })();
 
 let SITE = null;
-const state = { fig: "", bpSet: "", allSecrets: false, runPolicy: "contextual_rewrite", runSample: null, split: "dev", scenario: null, showBackground: false, runFilter: "all", runGroup: "experiment", feed: "all", scLabel: "", scType: "", scSet: "" };
+const state = { showReasons: true, fig: "", bpSet: "", allSecrets: false, runPolicy: "contextual_rewrite", runSample: null, split: "dev", scenario: null, showBackground: false, runFilter: "all", runGroup: "experiment", feed: "all", scLabel: "", scType: "", scSet: "" };
 
 /* ---------- Data access ---------- */
 
@@ -508,6 +508,30 @@ function wordDiff(a, b) {
   return out;
 }
 
+const PROMPT_SETS = {
+  advocate: ["advocate", "process_executor", "process_self", "stance_honest", "stance_red_team", "stance_cover_up", "rules"],
+  executor: ["executor", "rules"],
+  judge: ["judge_violation", "judge_secrets", "context_evidence", "context_prior"],
+  integrity: ["integrity_check"],
+};
+function promptBar(policy) {
+  if (!SITE.prompts || !Object.keys(SITE.prompts).length) return "";
+  const roles = ["advocate", ...(policy === "contextual_rewrite" ? ["executor"] : []), "judge", "integrity"];
+  const used = policy.startsWith("text_") ? ["judge", "integrity"] : roles;
+  return `<div class="prompt-bar"><span class="faint">Prompts</span>${used.map((r) => `<button type="button" class="chip" data-prompt="${r}">${esc(ROLE[r === "integrity" ? "integrity_check" : r] || r)}</button>`).join("")}<span class="faint small">templates as of the current commit; ${SITE.inspect_viewer ? "full calls in Transcripts" : "filled with the scenario at run time"}</span></div>`;
+}
+function showPrompt(role) {
+  const box = $("prompt-view");
+  if (!box) return;
+  if (box.dataset.role === role && !box.hidden) { box.hidden = true; return; }
+  box.dataset.role = role;
+  box.hidden = false;
+  box.innerHTML = `<div class="sub" style="justify-content:space-between"><h4 style="margin:0">${esc(ROLE[role === "integrity" ? "integrity_check" : role] || role)} prompt</h4><button type="button" class="link-btn" data-close-prompt>Close</button></div>` + PROMPT_SETS[role].filter((n) => SITE.prompts[n]).map((n) =>
+    `<details ${n === PROMPT_SETS[role][0] ? "open" : ""}><summary class="mono">${esc(n)}.md</summary><pre class="prompt">${esc(SITE.prompts[n])}</pre></details>`).join("");
+  box.querySelector("[data-close-prompt]").onclick = () => { box.hidden = true; };
+  box.scrollIntoView({ block: "nearest" });
+}
+
 function sampleBrowser(r) {
   const groups = byScenario(r.samples);
   if (!groups.some((g) => g.id === state.runSample)) state.runSample = groups[0]?.id ?? null;
@@ -531,14 +555,18 @@ function sampleBrowser(r) {
       const decision = s.policy === "self_redaction" ? "applied" : ru ? ru.decision : "denied";
       const final = ru && ru.decision === "modify" ? ru.replacement : ru && ru.decision === "deny" ? q.span : q.action === "generalize" && q.proposed_replacement ? q.proposed_replacement : `[REDACTED: ${q.category}]`;
       const cls = decision === "deny" || decision === "denied" ? "fail" : decision === "modify" ? "warn" : "pass";
-      return `<tr><td class="mono-cell wrap">${esc(q.span)}</td><td>${esc(q.action)}</td><td>${esc(q.category)}</td>
-        <td><span class="badge ${cls}">${esc(decision)}</span></td><td class="mono-cell wrap">${esc(final ?? "")}</td>
-        <td class="wrap"><details><summary>Reasons</summary><p><b>Advocate.</b> ${esc(q.reason)}</p>${ru && s.policy !== "self_redaction" ? `<p><b>Executor.</b> ${esc(ru.reason)}</p>` : ""}</details></td></tr>`;
+      const why = `<div class="why"><p><span class="who">Advocate</span>${q.rule ? `<span class="faint"> cites ${esc(q.rule)}</span>` : ""}: ${esc(q.reason)}${q.proposed_replacement ? ` <span class="faint">Proposed: ${esc(q.proposed_replacement)}</span>` : ""}</p>${ru && s.policy !== "self_redaction" ? `<p><span class="who">Executor</span>: ${esc(ru.reason)}</p>` : ""}</div>`;
+      return `<tr class="req"><td class="num faint">${k + 1}</td><td class="mono-cell wrap">${esc(q.span)}</td><td>${esc(q.action)}</td><td>${esc(q.category)}</td>
+        <td><span class="badge ${cls}">${esc(decision)}</span></td><td class="mono-cell wrap">${esc(final ?? "")}</td></tr>
+        <tr class="req-why" ${state.showReasons ? "" : "hidden"}><td></td><td colspan="5">${why}</td></tr>`;
     }).join("") : `<tr><td colspan="6" class="muted">${s.policy.startsWith("text_") ? "Registry values replaced by script." : "No requests."}</td></tr>`;
     const edited = Object.fromEntries(s.edited_evidence.map((e) => [e.log_id, e.quote]));
     const ev = s.evidence.map((e) => `<div><span class="id">${esc(e.log_id)}</span><span class="txt">${wordDiff(e.quote, edited[e.log_id] ?? "")}</span></div>`).join("");
     const secrets = s.secrets.filter((x) => x.p_unedited - x.p_prior > 0.01);
     body = `
+      <div class="finding-callout"><p class="eyebrow">Auditor's finding</p><p class="finding-text">${esc(s.finding)}</p>${s.reasoning ? `<p class="muted small">${esc(s.reasoning)}</p>` : ""}</div>
+      ${promptBar(s.policy)}
+      <div class="prompt-view" id="prompt-view" hidden></div>
       <dl class="kv">
         <div><dt>${term("auditor_grade", "Auditor grade")}</dt><dd>${s.auditor_grade}</dd></div>
         <div><dt>${term("judge_score", "Judge, unedited")}</dt><dd>${sc(s.judge_unedited)}</dd></div>
@@ -546,13 +574,13 @@ function sampleBrowser(r) {
         <div><dt>${term("finding", "Finding")}</dt><dd>${esc(s.integrity)}</dd></div>
       </dl>
       <div><h4>Evidence shown to the judge</h4><div class="logs diff">${ev}</div></div>
-      <div><h4>Requests</h4><div class="panel"><div class="scroll"><table class="left">
-        <thead><tr><th>Span</th><th>Action</th><th>Category</th><th>${term("ruling", "Ruling")}</th><th>${term("result", "Result")}</th><th></th></tr></thead><tbody>${reqs}</tbody></table></div></div></div>
+      <div><div class="sub" style="justify-content:space-between;margin:0 0 8px"><h4 style="margin:0">Requests and rulings</h4>${s.requests.length ? `<button type="button" class="link-btn" id="toggle-why">${state.showReasons ? "Hide reasoning" : "Show reasoning"}</button>` : ""}</div><div class="panel"><div class="scroll"><table class="left reqs">
+        <thead><tr><th></th><th>Span</th><th>Action</th><th>Category</th><th>${term("ruling", "Ruling")}</th><th>${term("result", "Result")}</th></tr></thead><tbody>${reqs}</tbody></table></div></div></div>
       ${secrets.length ? `<div><h4>Secrets</h4><div class="panel"><div class="scroll"><table>
         <thead><tr><th>Secret</th><th style="text-align:left">True value</th><th>${term("prior", "Prior")}</th><th>${term("p_unedited", "Unedited")}</th><th>${term("p_edited", "Edited")}</th><th>${term("leakage", "Leakage")}</th></tr></thead><tbody>
         ${secrets.map((x) => `<tr><td>${esc(human(x.secret_type))}</td><td class="mono-cell" style="text-align:left">${esc(x.value)}</td><td>${f2(x.p_prior)}</td><td>${f2(x.p_unedited)}</td><td>${f2(x.p_edited)}</td><td>${f2(x.leakage)}</td></tr>`).join("")}
         </tbody></table></div></div></div>` : ""}
-      <details><summary>Auditor's finding</summary><p>${esc(s.finding)}</p></details>`;
+`;
   }
   return `<div class="browser" id="samples">
     <ol class="list panel" id="run-list">${list}</ol>
@@ -598,6 +626,9 @@ function pageRun(name, tab = "") {
   $("view").querySelectorAll("tr.link[data-id]").forEach((el) => onKey(el, () => open(el.dataset.id, null)));
   $("view").querySelectorAll("#run-list li").forEach((li) => onKey(li, () => { state.runSample = li.dataset.id; pageRun(name, "samples"); }));
   $("view").querySelectorAll("#samples .seg button").forEach((b) => { b.onclick = () => { state.runPolicy = b.dataset.p; pageRun(name, "samples"); }; });
+  $("view").querySelectorAll("[data-prompt]").forEach((b) => { b.onclick = () => showPrompt(b.dataset.prompt); });
+  const why = $("toggle-why");
+  if (why) why.onclick = () => { state.showReasons = !state.showReasons; pageRun(name, "samples"); };
   const t = $("all-secrets");
   if (t) t.onclick = () => { state.allSecrets = !state.allSecrets; pageRun(name, tab); };
 }
