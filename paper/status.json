@@ -1,14 +1,14 @@
 {
- "built_at": "2026-10-26T13:41:54+00:00",
+ "built_at": "2026-11-05T19:06:07+00:00",
  "ok": true,
  "errors": [],
- "seconds": 3.1,
+ "seconds": 3.2,
  "pdf": true,
  "outline": [
   {
    "file": "sections/abstract.tex",
    "title": "Abstract",
-   "words": 0
+   "words": 28
   },
   {
    "file": "sections/introduction.tex",
@@ -26,28 +26,18 @@
    "words": 0
   },
   {
-   "file": "sections/benchmark.tex",
-   "title": "Benchmark",
-   "words": 4
-  },
-  {
-   "file": "sections/escalation.tex",
-   "title": "Redaction under escalation",
-   "words": 0
-  },
-  {
-   "file": "sections/detective.tex",
-   "title": "Redaction detective",
+   "file": "sections/data.tex",
+   "title": "Data: simulated labs with proven labels",
    "words": 0
   },
   {
    "file": "sections/results.tex",
    "title": "Results",
-   "words": 5
+   "words": 56
   },
   {
    "file": "sections/limitations.tex",
-   "title": "Limitations",
+   "title": "Discussion and limitations",
    "words": 0
   },
   {

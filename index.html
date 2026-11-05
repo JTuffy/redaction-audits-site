@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2e746ab46e">
 </head>
 <body>
   <header class="top">
@@ -23,15 +23,18 @@
       <a class="brand" href="#/">Redaction Audits</a>
       <nav class="nav" aria-label="Sections">
         <a href="#/" data-nav="overview">Overview</a>
+        <a href="#/method" data-nav="method">Method</a>
         <a href="#/data" data-nav="data">Data</a>
+        <a href="#/experiments" data-nav="experiments">Experiments</a>
+        <a href="#/findings" data-nav="findings">Findings</a>
         <a href="#/runs" data-nav="runs">Runs</a>
         <a href="#/notes" data-nav="notes">Notes</a>
-        <a href="#/paper" data-nav="paper">Paper</a>
+        <a href="#/paper" data-nav="paper" hidden>Paper</a>
       </nav>
       <button type="button" class="theme-btn" id="theme-btn" aria-label="Colour theme">Theme: auto</button>
     </div>
   </header>
   <main class="wrap" id="view" tabindex="-1"></main>
-  <script src="app.js"></script>
+  <script type="module" src="js/app.js?v=2e746ab46e"></script>
 </body>
 </html>
