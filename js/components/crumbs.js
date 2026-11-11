@@ -4,7 +4,7 @@
    An item is { text, href, mono }; `text` is plain text and is escaped here. Falsy items are
    skipped, so a caller can leave out a level it doesn't have. */
 
-import { esc } from "../lib/dom.js?v=863af23878";
+import { esc } from "../lib/dom.js?v=0cb80a196f";
 
 export function crumbs(items) {
   const shown = items.filter(Boolean);

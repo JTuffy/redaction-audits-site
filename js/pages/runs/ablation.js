@@ -2,18 +2,18 @@
    separability run, or a re-ask (judge noise). Mean scores per group, then each case's scores
    shaded by their shift from unedited. */
 
-import { $, esc } from "../../lib/dom.js?v=863af23878";
-import { f0, mean, sc, sceneName, sd, signed } from "../../lib/format.js?v=863af23878";
-import { CONDITION, CONDITIONS, LABELS } from "../../lib/labels.js?v=863af23878";
-import { dataTip, term, tipRows } from "../../lib/tips.js?v=863af23878";
-import { rankCase } from "../../data/constants.js?v=863af23878";
-import { ablationRun, caseHref, ledgerEntry, linkRunNames, runType, samplesOf } from "../../data/runs.js?v=863af23878";
-import { SITE } from "../../data/site.js?v=863af23878";
-import { cell, table } from "../../components/blocks.js?v=863af23878";
-import { pageHead, section } from "../../components/page.js?v=863af23878";
-import { runCrumbs, subLine } from "./identity.js?v=863af23878";
-import { setupGrid } from "./setup.js?v=863af23878";
-import { validatorTable } from "./validator.js?v=863af23878";
+import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
+import { f0, mean, sc, sceneName, sd, signed } from "../../lib/format.js?v=0cb80a196f";
+import { CONDITION, CONDITIONS, LABELS } from "../../lib/labels.js?v=0cb80a196f";
+import { dataTip, term, tipRows } from "../../lib/tips.js?v=0cb80a196f";
+import { rankCase } from "../../data/constants.js?v=0cb80a196f";
+import { ablationRun, caseHref, ledgerEntry, linkRunNames, runType, samplesOf } from "../../data/runs.js?v=0cb80a196f";
+import { SITE } from "../../data/site.js?v=0cb80a196f";
+import { cell, table } from "../../components/blocks.js?v=0cb80a196f";
+import { pageHead, section } from "../../components/page.js?v=0cb80a196f";
+import { runCrumbs, subLine } from "./identity.js?v=0cb80a196f";
+import { setupGrid } from "./setup.js?v=0cb80a196f";
+import { validatorTable } from "./validator.js?v=0cb80a196f";
 
 const groupOf = (row) => (row.label === "red_herring" ? `red_herring:${row.difficulty}` : row.label);
 const GROUPS = [["violation", "Violation"], ["red_herring:easy", "Red herring · easy"], ["red_herring:medium", "Red herring · medium"], ["red_herring:hard", "Red herring · hard"], ["clean", "Clean"]];

@@ -2,13 +2,13 @@
    `main_question`), and the three experimental assets. Each sub-question shows the Findings answer
    for it, so the two pages can't disagree. */
 
-import { $, esc } from "../../lib/dom.js?v=863af23878";
-import { term } from "../../lib/tips.js?v=863af23878";
-import { SITE } from "../../data/site.js?v=863af23878";
-import { expectationIsDraft, experimentHref, experiments, mainQuestions } from "../../data/experiments.js?v=863af23878";
-import { badge, fields, fold } from "../../components/blocks.js?v=863af23878";
-import { pageHead, section } from "../../components/page.js?v=863af23878";
-import { answers as findingsAnswers } from "../../data/answers.js?v=863af23878";
+import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
+import { term } from "../../lib/tips.js?v=0cb80a196f";
+import { SITE } from "../../data/site.js?v=0cb80a196f";
+import { expectationIsDraft, experimentHref, experiments, mainQuestions } from "../../data/experiments.js?v=0cb80a196f";
+import { badge, fields, fold } from "../../components/blocks.js?v=0cb80a196f";
+import { pageHead, section } from "../../components/page.js?v=0cb80a196f";
+import { answers as findingsAnswers } from "../../data/answers.js?v=0cb80a196f";
 
 function evidenceOf(ids) {
   const cov = SITE.results?.coverage || [];

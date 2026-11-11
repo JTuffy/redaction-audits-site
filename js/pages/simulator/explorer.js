@@ -4,23 +4,23 @@
    fact; a case shows its chain under the chosen policy and, with a run chosen, what the judge
    scored and why. Sentences and states come from Python; the URL holds the view. */
 
-import { $, esc } from "../../lib/dom.js?v=863af23878";
-import { wordDiff } from "../../lib/diff.js?v=863af23878";
-import { f0, human, pct } from "../../lib/format.js?v=863af23878";
-import { LABELS, LINK_STATE, READING, tone } from "../../lib/labels.js?v=863af23878";
-import { term } from "../../lib/tips.js?v=863af23878";
-import { onLeave, query, rerender } from "../../lib/view-state.js?v=863af23878";
-import { clearedAt, flaggedAt, readings, validatorViews, viewName } from "../../data/constants.js?v=863af23878";
-import { setHref } from "../../data/datasets.js?v=863af23878";
-import { experimentHref } from "../../data/experiments.js?v=863af23878";
-import { ledgerEntry, runJudge } from "../../data/runs.js?v=863af23878";
-import { lazyJson, SITE } from "../../data/site.js?v=863af23878";
-import { callItems, decidableShare, splitBar } from "../../components/bars.js?v=863af23878";
-import { badge, cell, choice, fields, fold, labelBadge, table } from "../../components/blocks.js?v=863af23878";
-import { browser, keepScroll, wireBrowser } from "../../components/browser.js?v=863af23878";
-import { legend } from "../../components/legend.js?v=863af23878";
-import { logLines, markers, markLine, wireLogs } from "../../components/logs.js?v=863af23878";
-import { section } from "../../components/page.js?v=863af23878";
+import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
+import { wordDiff } from "../../lib/diff.js?v=0cb80a196f";
+import { f0, human, pct } from "../../lib/format.js?v=0cb80a196f";
+import { LABELS, LINK_STATE, READING, tone } from "../../lib/labels.js?v=0cb80a196f";
+import { term } from "../../lib/tips.js?v=0cb80a196f";
+import { onLeave, query, rerender } from "../../lib/view-state.js?v=0cb80a196f";
+import { clearedAt, flaggedAt, readings, validatorViews, viewName } from "../../data/constants.js?v=0cb80a196f";
+import { setHref } from "../../data/datasets.js?v=0cb80a196f";
+import { experimentHref } from "../../data/experiments.js?v=0cb80a196f";
+import { ledgerEntry, runJudge } from "../../data/runs.js?v=0cb80a196f";
+import { lazyJson, SITE } from "../../data/site.js?v=0cb80a196f";
+import { callItems, decidableShare, splitBar } from "../../components/bars.js?v=0cb80a196f";
+import { badge, cell, choice, fields, fold, labelBadge, table } from "../../components/blocks.js?v=0cb80a196f";
+import { browser, keepScroll, wireBrowser } from "../../components/browser.js?v=0cb80a196f";
+import { legend } from "../../components/legend.js?v=0cb80a196f";
+import { logLines, markers, markLine, wireLogs } from "../../components/logs.js?v=0cb80a196f";
+import { section } from "../../components/page.js?v=0cb80a196f";
 
 /* ---------- the view in the URL, and keeping the reader's place ---------- */
 

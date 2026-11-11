@@ -1,6 +1,6 @@
 /* Word-level diff of two strings: <del> for removed text, <ins> for added. Both sides escaped. */
 
-import { esc } from "./dom.js?v=863af23878";
+import { esc } from "./dom.js?v=0cb80a196f";
 
 export function wordDiff(a, b) {
   const split = (t) => t.match(/\s+|[^\s=]+|=/g) || [];

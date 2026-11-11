@@ -1,18 +1,19 @@
-/* One experiment's page, one template for all: question, hypothesis, reasoning, the expectations as
-   written, design, progress, result, and its runs. */
+/* One experiment's page, one template for all. An experiment with a result leads with its finding
+   and result; one without leads with its hypothesis. Then reasoning, the expectations as written,
+   design, progress, and its runs. */
 
-import { esc } from "../../lib/dom.js?v=863af23878";
-import { money } from "../../lib/format.js?v=863af23878";
-import { judgeName, policyName, stanceName } from "../../data/constants.js?v=863af23878";
-import { datasetHref, datasetNamed, datasetOfVersion } from "../../data/datasets.js?v=863af23878";
-import { experimentHref, planOf, studyOf, subOf } from "../../data/experiments.js?v=863af23878";
-import { runHref, runJudge } from "../../data/runs.js?v=863af23878";
-import { fold, num, table } from "../../components/blocks.js?v=863af23878";
-import { crumbs } from "../../components/crumbs.js?v=863af23878";
-import { section } from "../../components/page.js?v=863af23878";
-import { answers as findingsAnswers } from "../../data/answers.js?v=863af23878";
-import { expectationOf, pill, progressMeter, progressOf, recorded, runsOf } from "./progress.js?v=863af23878";
-import { cellTable, checksBlock, reviewBlock } from "./study.js?v=863af23878";
+import { esc } from "../../lib/dom.js?v=0cb80a196f";
+import { money } from "../../lib/format.js?v=0cb80a196f";
+import { judgeName, policyName, stanceName } from "../../data/constants.js?v=0cb80a196f";
+import { datasetHref, datasetNamed, datasetOfVersion } from "../../data/datasets.js?v=0cb80a196f";
+import { experimentHref, planOf, studyOf, subOf } from "../../data/experiments.js?v=0cb80a196f";
+import { runHref, runJudge } from "../../data/runs.js?v=0cb80a196f";
+import { fold, num, table } from "../../components/blocks.js?v=0cb80a196f";
+import { crumbs } from "../../components/crumbs.js?v=0cb80a196f";
+import { section } from "../../components/page.js?v=0cb80a196f";
+import { answers as findingsAnswers } from "../../data/answers.js?v=0cb80a196f";
+import { expectationOf, pill, progressMeter, progressOf, recorded, runsOf } from "./progress.js?v=0cb80a196f";
+import { cellTable, checksBlock, reviewBlock } from "./study.js?v=0cb80a196f";
 
 const datasetLink = (d, fallback) => (d ? `<a href="${datasetHref(d)}">${esc(d.title)}</a>` : esc(fallback));
 
@@ -64,12 +65,13 @@ export function experimentPage(x) {
   const progress = p.state === "todo"
     ? `<p class="muted">Not started.${plan ? ` Estimate ${esc(money(plan.estimate))}.` : ""}</p>`
     : `<p>${progressMeter(p)}</p><p class="small muted">${p.runs ?? recorded(runs).length} runs recorded${spent}${p.parts?.length ? ` · parts ${esc(p.parts.join(", "))}` : ""}${plan && p.state !== "done" ? ` · whole plan estimated at ${esc(money(plan.estimate))}` : ""}</p>`;
-  return head
-    + section("Hypothesis", `<p class="experiment-lead">${esc(x.hypothesis || "—")}</p>`)
-    + (x.reasoning ? section("Reasoning", `<p>${esc(x.reasoning)}</p>`) : "")
+  const hypothesis = section("Hypothesis", `<p class="experiment-lead">${esc(x.hypothesis || "—")}</p>`);
+  const outcome = (x.finding ? section("Finding", `<p class="experiment-lead">${esc(x.finding)}</p>`) : "") + section("Result", result);
+  const setup = (x.reasoning ? section("Reasoning", `<p>${esc(x.reasoning)}</p>`) : "")
     + section("Expectations, as written", `<p>${ex.badge}</p><p>${esc(ex.text)}</p>`)
     + section("Design", `<p>${esc(x.question || "")}</p>${plan ? planTable(plan) : ""}${st ? `<h3 class="sub-h">Cases drawn per kind</h3>${cellTable(st)}<h3 class="sub-h">Blind review of the drawn cases</h3>${reviewBlock(st)}` : ""}`)
-    + section("Progress", progress)
-    + section("Result", result)
-    + fold(`Runs <span class="count">${runs.length}</span>`, runsTable(runs), { cls: "quiet experiment-fold" });
+    + section("Progress", progress);
+  const body = x.result ? outcome + hypothesis + setup : hypothesis + setup + outcome;
+  return head + body + fold(`Runs <span class="count">${runs.length}</span>`, runsTable(runs), { cls: "quiet experiment-fold" });
+});
 }

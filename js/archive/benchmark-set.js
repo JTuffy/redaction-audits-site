@@ -1,19 +1,19 @@
 /* The hand-written benchmark's set pages (an archived dataset): its cases, composition and checks,
    so a run on the benchmark opens the cases it read. */
 
-import { $, esc } from "../lib/dom.js?v=863af23878";
-import { f2, human } from "../lib/format.js?v=863af23878";
-import { LABELS, labelText, SETS } from "../lib/labels.js?v=863af23878";
-import { term } from "../lib/tips.js?v=863af23878";
-import { query, withQuery } from "../lib/view-state.js?v=863af23878";
-import { labelOrder } from "../data/constants.js?v=863af23878";
-import { ledgerEntry, p1Run, runHref } from "../data/runs.js?v=863af23878";
-import { lazyJson, SITE } from "../data/site.js?v=863af23878";
-import { badge, cell, fields, table } from "../components/blocks.js?v=863af23878";
-import { browser, wireBrowser } from "../components/browser.js?v=863af23878";
-import { legend, swatch } from "../components/legend.js?v=863af23878";
-import { logLines, wireLogs } from "../components/logs.js?v=863af23878";
-import { section } from "../components/page.js?v=863af23878";
+import { $, esc } from "../lib/dom.js?v=0cb80a196f";
+import { f2, human } from "../lib/format.js?v=0cb80a196f";
+import { LABELS, labelText, SETS } from "../lib/labels.js?v=0cb80a196f";
+import { term } from "../lib/tips.js?v=0cb80a196f";
+import { query, withQuery } from "../lib/view-state.js?v=0cb80a196f";
+import { labelOrder } from "../data/constants.js?v=0cb80a196f";
+import { ledgerEntry, p1Run, runHref } from "../data/runs.js?v=0cb80a196f";
+import { lazyJson, SITE } from "../data/site.js?v=0cb80a196f";
+import { badge, cell, fields, table } from "../components/blocks.js?v=0cb80a196f";
+import { browser, wireBrowser } from "../components/browser.js?v=0cb80a196f";
+import { legend, swatch } from "../components/legend.js?v=0cb80a196f";
+import { logLines, wireLogs } from "../components/logs.js?v=0cb80a196f";
+import { section } from "../components/page.js?v=0cb80a196f";
 
 export const BENCH_TABS = [["cases", "Cases"], ["composition", "Composition"], ["checks", "Checks"]];
 

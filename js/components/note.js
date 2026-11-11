@@ -2,9 +2,9 @@
    page as its full write-up. A note is { slug, title, markdown } (data/notes.js), or a page with
    its own `render()` (the glossary). */
 
-import { esc } from "../lib/dom.js?v=863af23878";
-import { fold } from "./blocks.js?v=863af23878";
-import { markdown, slugify } from "./markdown.js?v=863af23878";
+import { esc } from "../lib/dom.js?v=0cb80a196f";
+import { fold } from "./blocks.js?v=0cb80a196f";
+import { markdown, slugify } from "./markdown.js?v=0cb80a196f";
 
 /* A note's "##" headings, in order. */
 export const noteHeadings = (page) => [...(page.markdown || "").matchAll(/^##\s+(.*)$/gm)].map((m) => m[1]);

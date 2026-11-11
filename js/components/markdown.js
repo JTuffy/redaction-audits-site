@@ -1,8 +1,8 @@
 /* Markdown for the notes and set cards: headings, lists, tables, status lines, folded blocks
    ("+++ Title" … "+++"), and code spans that link when `link` names a page for them. */
 
-import { esc } from "../lib/dom.js?v=863af23878";
-import { badge, fold, table } from "./blocks.js?v=863af23878";
+import { esc } from "../lib/dom.js?v=0cb80a196f";
+import { badge, fold, table } from "./blocks.js?v=0cb80a196f";
 
 export const slugify = (t) => String(t).toLowerCase().replace(/[`*]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 

@@ -1,8 +1,8 @@
 /* What each policy costs on both sides, per judge (`SITE.results.tradeoffs`): the share of reads
    right and the judge's probability on the secret, after the edit. */
 
-import { judgeRank, viewKeys, viewName } from "./constants.js?v=863af23878";
-import { SITE } from "./site.js?v=863af23878";
+import { judgeRank, viewKeys, viewName } from "./constants.js?v=0cb80a196f";
+import { SITE } from "./site.js?v=0cb80a196f";
 
 /* Generalize ran once on a 32-case slice and was dropped (on simulated data it edits exactly as
    pseudonyms do), so it would sit beside the full runs on a fifth of their cases. */

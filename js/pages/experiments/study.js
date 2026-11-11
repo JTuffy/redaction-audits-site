@@ -2,17 +2,17 @@
    into them, the blind reviewer's verdicts, and, once the runs are in, the judge's reads per cell and
    the expectations scored. Everything comes from site/experiments.py. */
 
-import { esc } from "../../lib/dom.js?v=863af23878";
-import { NONE, pct, signed } from "../../lib/format.js?v=863af23878";
-import { LABELS } from "../../lib/labels.js?v=863af23878";
-import { term } from "../../lib/tips.js?v=863af23878";
-import { withQuery } from "../../lib/view-state.js?v=863af23878";
-import { reviewMin, viewName } from "../../data/constants.js?v=863af23878";
-import { datasetHref, datasetOfSet } from "../../data/datasets.js?v=863af23878";
-import { SITE } from "../../data/site.js?v=863af23878";
-import { SHAPES, shapeHead } from "../../data/studies.js?v=863af23878";
-import { readsBar } from "../../components/bars.js?v=863af23878";
-import { badge, fold, num, table } from "../../components/blocks.js?v=863af23878";
+import { esc } from "../../lib/dom.js?v=0cb80a196f";
+import { NONE, pct, signed } from "../../lib/format.js?v=0cb80a196f";
+import { LABELS } from "../../lib/labels.js?v=0cb80a196f";
+import { term } from "../../lib/tips.js?v=0cb80a196f";
+import { withQuery } from "../../lib/view-state.js?v=0cb80a196f";
+import { reviewMin, viewName } from "../../data/constants.js?v=0cb80a196f";
+import { datasetHref, datasetOfSet } from "../../data/datasets.js?v=0cb80a196f";
+import { SITE } from "../../data/site.js?v=0cb80a196f";
+import { SHAPES, shapeHead } from "../../data/studies.js?v=0cb80a196f";
+import { readsBar } from "../../components/bars.js?v=0cb80a196f";
+import { badge, fold, num, table } from "../../components/blocks.js?v=0cb80a196f";
 
 /* What text redaction does to a cell's proof, in words: an excuse or a conviction, faked or cut. */
 function damageText(c) {

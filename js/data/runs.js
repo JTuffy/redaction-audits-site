@@ -1,11 +1,11 @@
 /* Recorded runs: the ledger (research/runs/ledger.jsonl), each run's results, what kind of run it is, and
    the links to its page and the cases it read. */
 
-import { stampOf } from "../lib/format.js?v=863af23878";
-import { withQuery } from "../lib/view-state.js?v=863af23878";
-import { judgeName } from "./constants.js?v=863af23878";
-import { datasetOfVersion, versionOf } from "./datasets.js?v=863af23878";
-import { lazyJson, SITE } from "./site.js?v=863af23878";
+import { stampOf } from "../lib/format.js?v=0cb80a196f";
+import { withQuery } from "../lib/view-state.js?v=0cb80a196f";
+import { judgeName } from "./constants.js?v=0cb80a196f";
+import { datasetOfVersion, versionOf } from "./datasets.js?v=0cb80a196f";
+import { lazyJson, SITE } from "./site.js?v=0cb80a196f";
 
 export const ledgerEntry = (name) => SITE.ledger.find((e) => e.name === name);
 export const p1Run = (name) => SITE.runs.find((r) => r.name === name);

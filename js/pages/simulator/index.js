@@ -2,21 +2,21 @@
    (claims, secrets), its outputs (sets), and each set's page. The long write-up
    (docs/notes/pipeline.md) folds under the overview. */
 
-import { $ } from "../../lib/dom.js?v=863af23878";
-import { READING } from "../../lib/labels.js?v=863af23878";
-import { term } from "../../lib/tips.js?v=863af23878";
-import { datasetNamed, simSummary } from "../../data/datasets.js?v=863af23878";
-import { codeHref } from "../../data/links.js?v=863af23878";
-import { noteNamed } from "../../data/notes.js?v=863af23878";
-import { ruleOf } from "../../data/studies.js?v=863af23878";
-import { cards, flow, subnav, table } from "../../components/blocks.js?v=863af23878";
-import { swatch } from "../../components/legend.js?v=863af23878";
-import { writeUp } from "../../components/note.js?v=863af23878";
-import { pageHead, section } from "../../components/page.js?v=863af23878";
-import { claimCards } from "./claims.js?v=863af23878";
-import { secretRegistry } from "./secrets.js?v=863af23878";
-import { setPage } from "./set-page.js?v=863af23878";
-import { setStats, setsIndex } from "./sets.js?v=863af23878";
+import { $ } from "../../lib/dom.js?v=0cb80a196f";
+import { READING } from "../../lib/labels.js?v=0cb80a196f";
+import { term } from "../../lib/tips.js?v=0cb80a196f";
+import { datasetNamed, simSummary } from "../../data/datasets.js?v=0cb80a196f";
+import { codeHref } from "../../data/links.js?v=0cb80a196f";
+import { noteNamed } from "../../data/notes.js?v=0cb80a196f";
+import { ruleOf } from "../../data/studies.js?v=0cb80a196f";
+import { cards, flow, subnav, table } from "../../components/blocks.js?v=0cb80a196f";
+import { swatch } from "../../components/legend.js?v=0cb80a196f";
+import { writeUp } from "../../components/note.js?v=0cb80a196f";
+import { pageHead, section } from "../../components/page.js?v=0cb80a196f";
+import { claimCards } from "./claims.js?v=0cb80a196f";
+import { secretRegistry } from "./secrets.js?v=0cb80a196f";
+import { setPage } from "./set-page.js?v=0cb80a196f";
+import { setStats, setsIndex } from "./sets.js?v=0cb80a196f";
 
 const TABS = [["#/simulator", "Overview", "overview"], ["#/simulator/claims", "Claims", "claims"], ["#/simulator/secrets", "Secrets", "secrets"], ["#/simulator/sets", "Sets", "sets"]];
 

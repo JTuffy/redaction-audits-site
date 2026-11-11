@@ -3,7 +3,7 @@
    gate, the readable-secret cut, the names of policies and judges, and the order of the
    validator's views and readings and of the labels. */
 
-import { SITE } from "./site.js?v=863af23878";
+import { SITE } from "./site.js?v=0cb80a196f";
 
 const constants = () => SITE?.constants || {};
 

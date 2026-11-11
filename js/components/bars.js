@@ -2,11 +2,11 @@
    share beside them, a secret guess against the blind guess, the key to a judge's reads, and a
    progress meter. Segment widths are data, so they are the one inline style the site sets. */
 
-import { esc } from "../lib/dom.js?v=863af23878";
-import { pct } from "../lib/format.js?v=863af23878";
-import { OUTCOMES } from "../lib/labels.js?v=863af23878";
-import { dataTip } from "../lib/tips.js?v=863af23878";
-import { legend, swatch } from "./legend.js?v=863af23878";
+import { esc } from "../lib/dom.js?v=0cb80a196f";
+import { pct } from "../lib/format.js?v=0cb80a196f";
+import { OUTCOMES } from "../lib/labels.js?v=0cb80a196f";
+import { dataTip } from "../lib/tips.js?v=0cb80a196f";
+import { legend, swatch } from "./legend.js?v=0cb80a196f";
 
 const none = `<span class="faint">—</span>`;
 

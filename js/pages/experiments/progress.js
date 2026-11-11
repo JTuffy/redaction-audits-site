@@ -1,12 +1,12 @@
 /* Where an experiment stands, from its recorded runs and coverage, never from a hand-set status;
    and how its expectations were written. */
 
-import { esc } from "../../lib/dom.js?v=863af23878";
-import { allRuns } from "../../data/runs.js?v=863af23878";
-import { DRAFT_EXPECTATION, experimentOf, planOf } from "../../data/experiments.js?v=863af23878";
-import { SITE } from "../../data/site.js?v=863af23878";
-import { meter } from "../../components/bars.js?v=863af23878";
-import { badge } from "../../components/blocks.js?v=863af23878";
+import { esc } from "../../lib/dom.js?v=0cb80a196f";
+import { allRuns } from "../../data/runs.js?v=0cb80a196f";
+import { DRAFT_EXPECTATION, experimentOf, planOf } from "../../data/experiments.js?v=0cb80a196f";
+import { SITE } from "../../data/site.js?v=0cb80a196f";
+import { meter } from "../../components/bars.js?v=0cb80a196f";
+import { badge } from "../../components/blocks.js?v=0cb80a196f";
 
 export const ENDED = ["settled", "superseded", "blocked"];
 export const runsOf = (x) => allRuns().filter((e) => experimentOf(e) === x);

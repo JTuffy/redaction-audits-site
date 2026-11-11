@@ -1,17 +1,17 @@
 /* The Harness tab: one trial and its settings, how it is scored, the guards on paid runs; the long
    write-up (docs/notes/protocol.md) folds underneath. Prompts are a sub-tab. */
 
-import { $, esc } from "../../lib/dom.js?v=863af23878";
-import { term } from "../../lib/tips.js?v=863af23878";
-import { batchApi, blindGuess, clearedAt, defaultModels, flaggedAt, judgeName, judgeOrder, maxRetries, policyKeys, policyName, stanceKeys, stanceName } from "../../data/constants.js?v=863af23878";
-import { allRuns, runJudge } from "../../data/runs.js?v=863af23878";
-import { codeHref } from "../../data/links.js?v=863af23878";
-import { noteNamed } from "../../data/notes.js?v=863af23878";
-import { readKey } from "../../components/bars.js?v=863af23878";
-import { cards, flow, subnav, table } from "../../components/blocks.js?v=863af23878";
-import { writeUp } from "../../components/note.js?v=863af23878";
-import { pageHead, section } from "../../components/page.js?v=863af23878";
-import { prompts } from "./prompts.js?v=863af23878";
+import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
+import { term } from "../../lib/tips.js?v=0cb80a196f";
+import { batchApi, blindGuess, clearedAt, defaultModels, flaggedAt, judgeName, judgeOrder, maxRetries, policyKeys, policyName, stanceKeys, stanceName } from "../../data/constants.js?v=0cb80a196f";
+import { allRuns, runJudge } from "../../data/runs.js?v=0cb80a196f";
+import { codeHref } from "../../data/links.js?v=0cb80a196f";
+import { noteNamed } from "../../data/notes.js?v=0cb80a196f";
+import { readKey } from "../../components/bars.js?v=0cb80a196f";
+import { cards, flow, subnav, table } from "../../components/blocks.js?v=0cb80a196f";
+import { writeUp } from "../../components/note.js?v=0cb80a196f";
+import { pageHead, section } from "../../components/page.js?v=0cb80a196f";
+import { prompts } from "./prompts.js?v=0cb80a196f";
 
 const TABS = [["#/harness", "Overview", "overview"], ["#/harness/prompts", "Prompts", "prompts"]];
 

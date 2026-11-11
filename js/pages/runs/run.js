@@ -2,24 +2,24 @@
    label and its secret guesses, per policy; the validator against its reads; the benchmark-era
    metrics, folded; judge scores (score-grid.js) and secret leakage by case. Or its cases tab (samples.js). */
 
-import { $, esc } from "../../lib/dom.js?v=863af23878";
-import { f2, human, sceneName } from "../../lib/format.js?v=863af23878";
-import { LABELS } from "../../lib/labels.js?v=863af23878";
-import { dataTip, term, tipRows } from "../../lib/tips.js?v=863af23878";
-import { query, setQuery, state } from "../../lib/view-state.js?v=863af23878";
-import { blindGuess, clearedAt, flaggedAt, policyName, stanceName } from "../../data/constants.js?v=863af23878";
-import { datasetOfVersion } from "../../data/datasets.js?v=863af23878";
-import { leakageInvalid, ledgerEntry, p1Run, runHref, samplesOf } from "../../data/runs.js?v=863af23878";
-import { guessBar, readKey, readsCell } from "../../components/bars.js?v=863af23878";
-import { cell, fold, num, subnav, table } from "../../components/blocks.js?v=863af23878";
-import { keepScroll, wireBrowser } from "../../components/browser.js?v=863af23878";
-import { pageHead, section } from "../../components/page.js?v=863af23878";
-import { benchmarkFold } from "./benchmark.js?v=863af23878";
-import { runCrumbs, runFields, transcripts } from "./identity.js?v=863af23878";
-import { byCase, chosenCase, runPolicies, sampleBrowser, scorable, showPrompt } from "./samples.js?v=863af23878";
-import { scoreGrid, wireScoreGrid } from "./score-grid.js?v=863af23878";
-import { setupGrid } from "./setup.js?v=863af23878";
-import { validatorTable } from "./validator.js?v=863af23878";
+import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
+import { f2, human, sceneName } from "../../lib/format.js?v=0cb80a196f";
+import { LABELS } from "../../lib/labels.js?v=0cb80a196f";
+import { dataTip, term, tipRows } from "../../lib/tips.js?v=0cb80a196f";
+import { query, setQuery, state } from "../../lib/view-state.js?v=0cb80a196f";
+import { blindGuess, clearedAt, flaggedAt, policyName, stanceName } from "../../data/constants.js?v=0cb80a196f";
+import { datasetOfVersion } from "../../data/datasets.js?v=0cb80a196f";
+import { leakageInvalid, ledgerEntry, p1Run, runHref, samplesOf } from "../../data/runs.js?v=0cb80a196f";
+import { guessBar, readKey, readsCell } from "../../components/bars.js?v=0cb80a196f";
+import { cell, fold, num, subnav, table } from "../../components/blocks.js?v=0cb80a196f";
+import { keepScroll, wireBrowser } from "../../components/browser.js?v=0cb80a196f";
+import { pageHead, section } from "../../components/page.js?v=0cb80a196f";
+import { benchmarkFold } from "./benchmark.js?v=0cb80a196f";
+import { runCrumbs, runFields, transcripts } from "./identity.js?v=0cb80a196f";
+import { byCase, chosenCase, runPolicies, sampleBrowser, scorable, showPrompt } from "./samples.js?v=0cb80a196f";
+import { scoreGrid, wireScoreGrid } from "./score-grid.js?v=0cb80a196f";
+import { setupGrid } from "./setup.js?v=0cb80a196f";
+import { validatorTable } from "./validator.js?v=0cb80a196f";
 
 /* Where the dataset's evidence names several candidates for most secrets (its leakage check, set
    page), the judge can't tell which one is the secret until redaction removes the others and a

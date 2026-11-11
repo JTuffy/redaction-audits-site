@@ -4,7 +4,7 @@
    ("name@version"), judges, runs, cases }. `links` resolves the names: { experimentHref(id),
    datasetHref(ref) (null when the site has no such dataset), byJudge (a sort comparator) }. */
 
-import { esc } from "../lib/dom.js?v=863af23878";
+import { esc } from "../lib/dom.js?v=0cb80a196f";
 
 function datasetLink(ref, datasetHref) {
   const [name, version = ""] = String(ref).split("@");

@@ -1,6 +1,6 @@
 /* A page's head (crumbs, title, sub line, purpose) and its titled sections. */
 
-import { crumbs as trail } from "./crumbs.js?v=863af23878";
+import { crumbs as trail } from "./crumbs.js?v=0cb80a196f";
 
 /* `crumbs` is a list of breadcrumb items (components/crumbs.js); `title`, `sub` and `purpose` are HTML. */
 export function pageHead({ crumbs, title, sub, purpose }) {

@@ -2,10 +2,10 @@
    text redaction should move the judge's violation score) and the claim shapes they group under;
    and the prediction studies' shifts, draw and sources, for the Findings prediction panel. */
 
-import { listed } from "../lib/format.js?v=863af23878";
-import { glossaryEntry, term } from "../lib/tips.js?v=863af23878";
-import { experimentNamed, subNamed } from "./experiments.js?v=863af23878";
-import { SITE } from "./site.js?v=863af23878";
+import { listed } from "../lib/format.js?v=0cb80a196f";
+import { glossaryEntry, term } from "../lib/tips.js?v=0cb80a196f";
+import { experimentNamed, subNamed } from "./experiments.js?v=0cb80a196f";
+import { SITE } from "./site.js?v=0cb80a196f";
 
 /* The two claim shapes, in display order. */
 export const SHAPES = ["permission", "prohibition"];

@@ -2,20 +2,20 @@
    case under one policy (verdicts, the finding, requests and rulings, the judge's evidence,
    secrets, prompts). Also groups a run's samples by case for the run page. */
 
-import { $, esc } from "../../lib/dom.js?v=863af23878";
-import { wordDiff } from "../../lib/diff.js?v=863af23878";
-import { caseName, f2, human, sc, signed } from "../../lib/format.js?v=863af23878";
-import { READING, ROLE } from "../../lib/labels.js?v=863af23878";
-import { term } from "../../lib/tips.js?v=863af23878";
-import { query } from "../../lib/view-state.js?v=863af23878";
-import { clearedAt, flaggedAt, policyKeys, policyName, rankCase } from "../../data/constants.js?v=863af23878";
-import { promptsFor } from "../../data/prompts.js?v=863af23878";
-import { simRunOf } from "../../data/datasets.js?v=863af23878";
-import { caseHref, ledgerEntry, runHref } from "../../data/runs.js?v=863af23878";
-import { lazyJson, SITE } from "../../data/site.js?v=863af23878";
-import { readKey } from "../../components/bars.js?v=863af23878";
-import { badge, cell, choice, fields, fold, labelBadge, subnav, table } from "../../components/blocks.js?v=863af23878";
-import { browser } from "../../components/browser.js?v=863af23878";
+import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
+import { wordDiff } from "../../lib/diff.js?v=0cb80a196f";
+import { caseName, f2, human, sc, signed } from "../../lib/format.js?v=0cb80a196f";
+import { READING, ROLE } from "../../lib/labels.js?v=0cb80a196f";
+import { term } from "../../lib/tips.js?v=0cb80a196f";
+import { query } from "../../lib/view-state.js?v=0cb80a196f";
+import { clearedAt, flaggedAt, policyKeys, policyName, rankCase } from "../../data/constants.js?v=0cb80a196f";
+import { promptsFor } from "../../data/prompts.js?v=0cb80a196f";
+import { simRunOf } from "../../data/datasets.js?v=0cb80a196f";
+import { caseHref, ledgerEntry, runHref } from "../../data/runs.js?v=0cb80a196f";
+import { lazyJson, SITE } from "../../data/site.js?v=0cb80a196f";
+import { readKey } from "../../components/bars.js?v=0cb80a196f";
+import { badge, cell, choice, fields, fold, labelBadge, subnav, table } from "../../components/blocks.js?v=0cb80a196f";
+import { browser } from "../../components/browser.js?v=0cb80a196f";
 
 /* A case gets the list's leak flag once a secret's leakage reaches this: page wording, not a
    measure (domain/metrics.py defines leakage, and its tail at LEAKAGE_TAIL_THRESHOLD). */
@@ -77,15 +77,43 @@ function spanNumbers(asked) {
   return (rq) => numbers[`${rq.category}\n${rq.span.toLowerCase()}`];
 }
 
-function requests(s, numbered) {
+/* What each request left in the report, as `domain.policies.applied_edits` writes it: the given
+   text, else the category's marker (numbered per span unless the run used the bare marker); under
+   "distinct", a text two different spans share is numbered too. */
+function finalTexts(s, standIn) {
   const numberOf = spanNumbers(s.requests);
-  const marker = (rq) => `[REDACTED: ${rq.category}${numbered ? ` ${numberOf(rq)}` : ""}]`;
+  const rulings = Object.fromEntries(s.rulings.map((x) => [x.request_index, x]));
+  const marker = (rq) => `[REDACTED: ${rq.category}${standIn && standIn !== "marker" ? ` ${numberOf(rq)}` : ""}]`;
+  const texts = s.requests.map((rq, k) => {
+    const ru = rulings[k];
+    if (ru && ru.decision === "deny") return rq.span;
+    if (ru && ru.decision === "modify" && ru.replacement) return ru.replacement;
+    return rq.action === "generalize" && rq.proposed_replacement ? rq.proposed_replacement : marker(rq);
+  });
+  if (standIn !== "distinct") return texts;
+  const applied = (k) => s.policy === "self_redaction" || (rulings[k] && rulings[k].decision !== "deny");
+  const spans = {};
+  s.requests.forEach((rq, k) => {
+    if (!applied(k)) return;
+    const shared = (spans[texts[k].toLowerCase()] ||= []);
+    if (!shared.includes(rq.span.toLowerCase())) shared.push(rq.span.toLowerCase());
+  });
+  return texts.map((text, k) => {
+    const shared = applied(k) ? spans[text.toLowerCase()] : [];
+    if (shared.length < 2) return text;
+    const n = shared.indexOf(s.requests[k].span.toLowerCase()) + 1;
+    return text.endsWith("]") ? `${text.slice(0, -1)} ${n}]` : `${text} (${n})`;
+  });
+}
+
+function requests(s, standIn) {
   if (!s.requests.length) return `<li class="muted">${s.policy.startsWith("text_") ? "A script replaced the registry values; no requests." : "No requests."}</li>`;
   const rulings = Object.fromEntries(s.rulings.map((x) => [x.request_index, x]));
+  const finals = finalTexts(s, standIn);
   return s.requests.map((rq, k) => {
     const ru = rulings[k];
     const decision = s.policy === "self_redaction" ? "applied" : ru ? { grant: "granted", modify: "rewritten", deny: "denied" }[ru.decision] || ru.decision : "denied";
-    const final = ru && ru.decision === "modify" ? ru.replacement : ru && ru.decision === "deny" ? rq.span : rq.action === "generalize" && rq.proposed_replacement ? rq.proposed_replacement : marker(rq);
+    const final = finals[k];
     return `<li class="request"><div class="request-head"><span class="request-n">${k + 1}</span><span class="request-span">${esc(rq.span)}</span>${badge(esc(decision), decision)}</div>
       ${fields([
         ["Asked", `${esc(rq.action)} · ${esc(rq.category)}${rq.rule ? ` · ${esc(rq.rule)}` : ""}<span class="request-why">${esc(rq.reason)}</span>`],
@@ -149,7 +177,7 @@ function sampleBody(r, s, label) {
   // Numbered: this is the order the trial ran in.
   return head
     + fold("1. The auditor's report", `<p class="finding-text">${esc(s.finding)}</p>${s.reasoning ? `<p class="muted small">${esc(s.reasoning)}</p>` : ""}<p class="muted small">Graded ${verdict(s, "auditor_grade")} by the auditor.</p>`, { open: true })
-    + fold("2. What the lab asked to remove, and the ruling", `<ol class="request-list">${requests(s, ledgerEntry(r.name)?.config?.rewrite_stand_in === "numbered")}</ol>`, { open: true, note: `${s.requests.length} requests` })
+    + fold("2. What the lab asked to remove, and the ruling", `<ol class="request-list">${requests(s, ledgerEntry(r.name)?.config?.rewrite_stand_in)}</ol>`, { open: true, note: `${s.requests.length} requests` })
     + fold("3. What the judge read", `<p class="small muted">The quoted lines after edits; struck words were removed, underlined words were added.</p><div class="logs diff">${ev}</div>`, { open: true, note: `${s.evidence.length} lines` })
     + fold("4. What the judge said", judgeSaid(r, s) + readKey({ flagged: flaggedAt(), cleared: clearedAt(), swatches: false }), { open: true });
 }

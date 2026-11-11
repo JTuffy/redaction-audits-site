@@ -2,7 +2,7 @@
    were recorded after it was last edited (`data/runs.countedSince`), so a reader knows to check it
    against Findings. Nothing when no counted run is newer, or when git couldn't date the text. */
 
-import { esc } from "../lib/dom.js?v=863af23878";
+import { esc } from "../lib/dom.js?v=0cb80a196f";
 
 export function staleNote(editedIso, since, what) {
   if (!editedIso || !since) return "";
