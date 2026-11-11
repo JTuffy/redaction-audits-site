@@ -1,0 +1,61 @@
+/* Design tokens: colours (light, then dark), fonts, font sizes, radii and shadows. Every other
+   stylesheet uses these; none sets its own colours or sizes.
+
+   Breakpoints (CSS variables can't be used in media queries, so these are the three in use):
+     640px   phones: one column, tighter controls
+     860px   narrow: side-by-side layouts stack
+     1000px  mid: the header nav wraps under the brand */
+
+:root {
+  --bg: #f6f6f4; --surface: #ffffff; --sunken: #f1f1ee; --line: #e3e3de; --line-strong: #cfcfc8;
+  --fg: #15171a; --muted: #585e65; --faint: #676d73; /* --faint passes 4.5:1 on every surface */
+  --banner-bg: var(--fg); --banner-fg: var(--bg); /* a main question's header */
+  --accent: #1f6b5c; --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --pass: #2f7d4a; --fail: #b3412e; --warn: #9a6a0b;
+  --up: #b3412e; --down: #2f5fc4;
+  --evidence: #9a6a0b; --correlate: #2f5fc4; --secret: #b3412e; --noise: #8d939a;
+  --tip-bg: #1d2024; --tip-fg: #eef0f2; --tip-muted: #a3a9b0; --tip-line: transparent;
+  --j1: #2a78d6; --j2: #eb6834; --j3: #1baf7a; --j4: #8a5cd6; /* judges, in judge order (components/judge-marks.js) */
+  /* A judge's read against the label, and the validator's call on a case, as a fill (bars, dots,
+     swatches): right and decidable, unsure and can't decide, wrong and may mislead. Text that
+     names one takes its tone (--pass, --warn, --fail). */
+  --right: color-mix(in srgb, var(--pass) 62%, var(--surface)); --unsure: var(--warn); --wrong: var(--fail);
+
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --fs-micro: 10.5px; --fs-tiny: 11.5px; --fs-label: 12px; --fs-note: 12.5px; --fs-small: 13px; --fs-ui: 13.5px;
+  --fs-table: 14px; --fs-item: 14.5px; --fs-body: 15px; --fs-title: 16px; --fs-lead: 17px; --fs-heading: 20px;
+  --fs-stat: 22px; --fs-page: 23px; --fs-hero: 26px;
+  --shadow-tip: 0 6px 20px -8px rgba(0, 0, 0, 0.35); --shadow-page: 0 1px 3px rgba(0, 0, 0, 0.15);
+  --paper: #ffffff; /* a PDF page, white in both themes */
+
+  --radius-xs: 2px; --radius-sm: 4px; --radius: 6px; --radius-lg: 8px; --radius-pill: 999px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1114; --surface: #15181c; --sunken: #111317; --line: #252930; --line-strong: #343a42;
+    --fg: #e8eaed; --muted: #a6adb5; --faint: #868d96;
+    --banner-bg: #262b31; --banner-fg: var(--fg);
+    --accent: #7cbcaa;
+    --pass: #7cc790; --fail: #f08b74; --warn: #e3b65b;
+    --up: #f08b74; --down: #8fb4ff;
+    --evidence: #e3b65b; --correlate: #8fb4ff; --secret: #f08b74; --noise: #6c737c;
+    --tip-bg: #262b31; --tip-fg: #e8eaed; --tip-muted: #9aa1a9; --tip-line: #363c44;
+    --j1: #3987e5; --j2: #d95926; --j3: #199e70; --j4: #9b74e0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1114; --surface: #15181c; --sunken: #111317; --line: #252930; --line-strong: #343a42;
+  --fg: #e8eaed; --muted: #a6adb5; --faint: #868d96;
+  --banner-bg: #262b31; --banner-fg: var(--fg);
+  --accent: #7cbcaa;
+  --pass: #7cc790; --fail: #f08b74; --warn: #e3b65b;
+  --up: #f08b74; --down: #8fb4ff;
+  --evidence: #e3b65b; --correlate: #8fb4ff; --secret: #f08b74; --noise: #6c737c;
+  --tip-bg: #262b31; --tip-fg: #e8eaed; --tip-muted: #9aa1a9; --tip-line: #363c44;
+  --j1: #3987e5; --j2: #d95926; --j3: #199e70; --j4: #9b74e0;
+  color-scheme: dark;
+}

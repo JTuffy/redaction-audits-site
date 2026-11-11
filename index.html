@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Redaction Audits</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%231f6b5c'/%3E%3Crect x='3' y='4' width='10' height='2' fill='%23fff'/%3E%3Crect x='3' y='7.5' width='6' height='2' fill='%23fff'/%3E%3Crect x='3' y='11' width='8' height='2' fill='%23fff'/%3E%3C/svg%3E">
   <script>
     // Served under a sub-path (e.g. /projects/redaction); relative URLs need the trailing slash.
     if (!location.pathname.endsWith("/") && !location.pathname.split("/").pop().includes(".")) {
@@ -15,26 +16,59 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="style.css?v=2e746ab46e">
+  <link rel="stylesheet" href="css/tokens.css?v=863af23878">
+  <link rel="stylesheet" href="css/base.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/blocks.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/table.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/fold.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/stale.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/tabs.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/crumbs.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/badge.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/bars.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/source.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/tips.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/logs.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/browser.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/legend.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/judge-marks.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/tradeoff.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/prose.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/note.css?v=863af23878">
+  <link rel="stylesheet" href="css/components/palette.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/overview.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/simulator.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/harness.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/experiments.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/runs.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/findings.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/notes.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/paper.css?v=863af23878">
+  <link rel="stylesheet" href="css/pages/archive.css?v=863af23878">
 </head>
 <body>
   <header class="top">
-    <div class="wrap top-row">
+    <div class="page top-row">
       <a class="brand" href="#/">Redaction Audits</a>
+      <button type="button" class="search-btn" id="search-btn">Search <kbd>Ctrl K</kbd></button>
       <nav class="nav" aria-label="Sections">
         <a href="#/" data-nav="overview">Overview</a>
-        <a href="#/method" data-nav="method">Method</a>
-        <a href="#/data" data-nav="data">Data</a>
-        <a href="#/experiments" data-nav="experiments">Experiments</a>
         <a href="#/findings" data-nav="findings">Findings</a>
-        <a href="#/runs" data-nav="runs">Runs</a>
+        <a href="#/experiments" data-nav="experiments">Experiments</a>
+        <a class="nav-sub" href="#/runs" data-sub="runs">Run log</a>
+        <a class="nav-sub" href="#/coverage" data-sub="coverage">Coverage</a>
+        <a href="#/simulator" data-nav="simulator">Simulator</a>
+        <a class="nav-sub" href="#/simulator/sets" data-sub="simulator/sets">Sets</a>
+        <a class="nav-sub" href="#/simulator/claims" data-sub="simulator/claims">Claims</a>
+        <a class="nav-sub" href="#/simulator/secrets" data-sub="simulator/secrets">Secrets</a>
+        <a href="#/harness" data-nav="harness">Harness</a>
         <a href="#/notes" data-nav="notes">Notes</a>
         <a href="#/paper" data-nav="paper" hidden>Paper</a>
       </nav>
-      <button type="button" class="theme-btn" id="theme-btn" aria-label="Colour theme">Theme: auto</button>
+      <button type="button" class="theme-btn" id="theme-btn">Theme: auto</button>
     </div>
   </header>
-  <main class="wrap" id="view" tabindex="-1"></main>
-  <script type="module" src="js/app.js?v=2e746ab46e"></script>
+  <main class="page" id="view" tabindex="-1"></main>
+  <script type="module" src="js/app.js?v=863af23878"></script>
 </body>
 </html>

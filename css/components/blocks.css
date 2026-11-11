@@ -1,0 +1,42 @@
+/* The blocks in components/blocks.js: fields, stats, cards, flow and choice. */
+
+/* fields: labelled values in a grid of boxes; `rows` lists them as label and value lines */
+.fields { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0;
+  border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); overflow: hidden; }
+.fields > div { padding: 10px 14px; box-shadow: inset -1px -1px 0 var(--line); min-width: 0; }
+.fields dt { font-size: var(--fs-tiny); text-transform: uppercase; letter-spacing: 0.04em; color: var(--faint); margin-bottom: 2px; }
+.fields dd { margin: 0; font-size: var(--fs-table); overflow-wrap: anywhere; }
+.fields dd .faint { font-size: var(--fs-note); }
+.fields.rows { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; border: 0; border-radius: 0; background: none; overflow: visible; }
+.fields.rows > div { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 10px; padding: 0; box-shadow: none; }
+.fields.rows dt { font-size: var(--fs-label); margin: 0; padding-top: 2px; }
+main.page > div > .fields { margin-top: 10px; } /* under a page title */
+
+/* stats: big numbers with a label and a note */
+.stats { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.stats > div { padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.stats dt { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.04em; color: var(--faint); margin-bottom: 4px; }
+.stats dd { margin: 0; font-size: var(--fs-stat); font-weight: 600; }
+.stats dd span { display: block; font-size: var(--fs-note); font-weight: 400; color: var(--muted); margin-top: 2px; }
+.stats + .panel { margin-top: 14px; }
+
+/* cards: small titled cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.card { padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.card h3 { margin: 0 0 4px; font-size: var(--fs-item); display: flex; align-items: center; gap: 6px; }
+.card p { margin: 0; font-size: var(--fs-ui); color: var(--muted); }
+
+/* flow: numbered steps in a row */
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; counter-reset: flow; }
+.flow li { counter-increment: flow; position: relative; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.flow li::before { content: counter(flow); position: absolute; top: 12px; right: 12px; font-size: var(--fs-label); color: var(--faint); }
+.flow h3 { margin: 0 0 4px; font-size: var(--fs-item); }
+.flow p { margin: 0 0 8px; font-size: var(--fs-ui); color: var(--muted); }
+.flow code { font-size: var(--fs-tiny); color: var(--faint); overflow-wrap: anywhere; }
+
+/* choice: a row of selectable cards */
+.choice { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; }
+.choice-card { font: inherit; text-align: left; display: grid; gap: 2px; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); color: var(--fg); cursor: pointer; }
+.choice-card span { font-size: var(--fs-small); }
+.choice-card .bar { margin: 6px 0 2px; }
+.choice-card[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); background: var(--accent-soft); }

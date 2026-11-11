@@ -1,0 +1,65 @@
+/* Experiments (pages/experiments): the list, one experiment's page, the run log, coverage and
+   reading results. */
+
+/* ---------- The list ---------- */
+
+.experiment-group { margin: 0 0 22px; }
+.experiment-group > header { display: block; margin: 0 0 8px; padding: 0; border: 0; }
+.experiment-group h2 { font-size: var(--fs-lead); }
+.experiment-kind { font: 500 var(--fs-tiny) var(--sans); text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+.experiment-rows { display: grid; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); overflow: hidden; }
+.experiment-row { display: grid; grid-template-columns: 7.5em minmax(13em, 17em) minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 10px 14px; color: inherit; text-decoration: none; border-top: 1px solid var(--line); }
+.experiment-row:first-child { border-top: 0; }
+.experiment-row:hover { background: var(--sunken); }
+.experiment-judge { font-weight: 600; font-size: var(--fs-table); white-space: nowrap; }
+.experiment-state { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.experiment-hyp { font-size: var(--fs-ui); color: var(--muted); line-height: 1.45; }
+.experiment-answer { margin: 8px 0 0; font-size: var(--fs-ui); line-height: 1.5; max-width: 96ch; }
+.experiment-answer b { font-weight: 600; }
+.fold.experiment-fold { margin: 0 0 4px; }
+.fold.experiment-fold > summary { font-size: var(--fs-table); padding: 6px 0; }
+.fold.followup-more { margin-top: 10px; }
+.followup-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 90ch; }
+.followup-list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; align-items: baseline; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.followup-list li .badge { justify-self: start; }
+.followup-list p { margin: 0; }
+@media (max-width: 640px) {
+  .experiment-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .experiment-hyp { grid-column: 1 / -1; }
+}
+
+/* ---------- One experiment ---------- */
+.study-head h1 { font-size: var(--fs-heading); margin: 4px 0 6px; letter-spacing: -0.01em; }
+.study-status { margin: 0; max-width: 90ch; }
+.study-status .badge { margin-right: 6px; }
+.experiment-lead { font-size: var(--fs-body); max-width: 80ch; }
+.study-cells td { vertical-align: top; }
+.study-cells tr.group td { background: var(--bg); color: var(--fg); font-weight: 600; font-size: var(--fs-ui); padding-top: 14px; }
+.fold.study-cases { margin-top: 4px; }
+.fold.study-cases > summary { font-size: var(--fs-note); }
+.study-set { font-size: var(--fs-note); margin-top: 4px; line-height: 1.7; }
+.study-set a { font-family: var(--mono); margin-right: 2px; }
+.study-read { display: grid; gap: 3px; min-width: 110px; }
+.study-disagree li { margin: 6px 0; }
+.study-checks td:first-child { width: 1%; white-space: nowrap; }
+
+/* ---------- Coverage, reading results ---------- */
+table.coverage th, table.coverage td { vertical-align: top; }
+table.coverage td { white-space: normal; }
+table.coverage td:first-child { min-width: 14em; }
+table.coverage .chip { display: inline-block; margin: 0 4px 4px 0; }
+.steps { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; counter-reset: step; }
+.steps li { counter-increment: step; padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--radius-pill); background: var(--surface); font-size: var(--fs-ui); }
+.steps li::before { content: counter(step) " "; color: var(--faint); }
+
+/* ---------- The run log ---------- */
+.grid-bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 4px 0 10px; }
+.grid-bar input[type="search"] { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--fg); min-width: 240px; }
+.grid-bar label { display: inline-flex; gap: 6px; align-items: center; }
+.grid-bar .link-btn { margin-left: auto; }
+.run-grid { height: 640px; width: 100%; --ag-font-family: var(--sans); --ag-font-size: var(--fs-ui);
+  --ag-background-color: var(--surface); --ag-foreground-color: var(--fg); --ag-header-background-color: var(--sunken);
+  --ag-border-color: var(--line); --ag-row-hover-color: var(--sunken); --ag-header-foreground-color: var(--muted); }
+.run-grid .ag-row { cursor: pointer; }
+.run-grid .run-dim { color: var(--faint); }
+.run-grid .mono { font-family: var(--mono); font-size: var(--fs-note); }

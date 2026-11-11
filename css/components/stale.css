@@ -1,0 +1,2 @@
+/* stale: the line under hand-written text that predates the latest counted runs. */
+.stale { margin: 0 0 12px; padding: 8px 12px; border-left: 3px solid var(--warn); background: var(--surface); color: var(--muted); }

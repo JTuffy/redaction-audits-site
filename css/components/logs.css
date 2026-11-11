@@ -1,0 +1,36 @@
+/* Log lines (components/logs.js: a case's log, a diff of edits), each with its kind's colour at
+   the edge, and the marks in them: secrets, the details that give them away, removed and added
+   words. */
+
+.logs { font: var(--fs-small)/1.6 var(--mono); background: var(--sunken); border: 1px solid var(--line); border-radius: var(--radius); overflow-x: auto; }
+.logs div { display: grid; grid-template-columns: 4px 76px 92px minmax(0, 1fr); gap: 10px; padding: 3px 12px 3px 0; }
+.logs.diff div { grid-template-columns: 76px minmax(0, 1fr); padding: 5px 12px; }
+.logs div + div { border-top: 1px solid var(--line); }
+.logs div.background { color: var(--faint); }
+.logs .id { color: var(--muted); padding-left: 8px; }
+.logs.diff .id { padding-left: 0; }
+.logs .src { color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+.logs .txt { white-space: pre-wrap; word-break: break-word; }
+.logs div.key .id, .key-id { color: var(--evidence); font-weight: 500; }
+@media (max-width: 640px) { /* a line's text gets the full width, under its id and source */
+  .logs div:not(.diff div) { grid-template-columns: 4px 76px minmax(0, 1fr); row-gap: 0; }
+  .logs div > i { grid-row: span 2; }
+  .logs:not(.diff) .txt { grid-column: 2 / -1; padding-left: 8px; }
+}
+
+/* A line's kind, at its edge and in legends */
+.kind-evidence { background: var(--evidence); }
+.kind-correlate { background: var(--correlate); }
+.kind-secret_mention { background: var(--secret); }
+.kind-lab_noise { background: var(--accent); }
+.kind-background { background: var(--noise); }
+
+/* Marks in a line (components/logs.js markLine): a secret's value, a detail that gives one away,
+   and a redaction marker as a bar naming what was removed. */
+mark.log-secret { background: color-mix(in srgb, var(--secret) 22%, transparent); color: inherit; border-radius: var(--radius-xs); padding: 0 1px; }
+mark.log-leak { background: none; color: inherit; text-decoration: underline 2px var(--correlate); text-underline-offset: 3px; }
+.log-bar { display: inline-block; font: 500 var(--fs-micro) var(--sans); color: var(--surface); background: var(--fg); border-radius: var(--radius-xs);
+  padding: 0 6px; line-height: 1.6; letter-spacing: 0.02em; vertical-align: 1px; }
+.logs-key { margin-top: 8px; }
+del { background: color-mix(in srgb, var(--secret) 20%, transparent); text-decoration: line-through; border-radius: var(--radius-xs); }
+ins { background: color-mix(in srgb, var(--correlate) 18%, transparent); text-decoration: none; border-radius: var(--radius-xs); }

@@ -1,0 +1,17 @@
+/* palette: the search box over the whole site (components/palette.js), a dialog near the top of
+   the screen with its matches listed under the input. */
+
+.palette { width: min(640px, calc(100vw - 32px)); margin: 12vh auto auto; padding: 0; border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg); background: var(--surface); color: var(--fg); overflow: hidden; }
+.palette::backdrop { background: color-mix(in srgb, var(--bg) 70%, transparent); }
+.palette input { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: none; color: var(--fg);
+  font: var(--fs-lead) var(--sans); padding: 14px 16px; outline: none; }
+.palette ol { list-style: none; margin: 0; padding: 6px; max-height: 60vh; overflow-y: auto; }
+.palette li { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 0 12px; padding: 7px 10px; border-radius: var(--radius); cursor: pointer; }
+.palette li[aria-selected="true"] { background: var(--accent-soft); }
+.palette li:hover { background: var(--sunken); }
+.palette-kind { grid-row: span 2; font-size: var(--fs-label); letter-spacing: 0.05em; text-transform: uppercase; color: var(--faint); padding-top: 3px; }
+.palette-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.palette-detail { grid-column: 2; font: var(--fs-note) var(--mono); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.palette-detail:empty { display: none; }
+.palette-none { color: var(--muted); cursor: default; }

@@ -1,0 +1,21 @@
+/* Hover tips (lib/tips.js). Terms carry a quiet dotted underline; data marks carry none. */
+
+.term { text-decoration: underline dotted; text-decoration-color: color-mix(in srgb, var(--faint) 55%, transparent); text-decoration-thickness: 1px;
+  text-underline-offset: 3px; cursor: help; }
+.term:hover, .term:focus-visible { text-decoration-color: currentColor; }
+.term:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-xs); }
+th .term, dt .term, h2 .term { text-decoration-color: transparent; }
+th .term:hover, dt .term:hover, h2 .term:hover { text-decoration-color: var(--faint); }
+
+.tip { position: fixed; z-index: 50; max-width: 300px; padding: 8px 10px; border-radius: var(--radius);
+  background: var(--tip-bg); color: var(--tip-fg); border: 1px solid var(--tip-line);
+  font: var(--fs-small)/1.45 var(--sans); font-weight: 400; letter-spacing: 0; text-align: left; white-space: normal;
+  box-shadow: var(--shadow-tip); pointer-events: none;
+  opacity: 0; transform: translateY(2px); transition: opacity 0.12s ease, transform 0.12s ease; }
+.tip.in { opacity: 1; transform: none; }
+.tip[hidden] { display: none; }
+.tip b { display: block; font-weight: 500; margin-bottom: 4px; }
+.tip code { display: block; margin-top: 6px; font: var(--fs-label) var(--mono); color: var(--tip-muted); background: none; border: 0; padding: 0; }
+.tip-row { display: flex; justify-content: space-between; gap: 18px; font-variant-numeric: tabular-nums; }
+.tip-row span:first-child { color: var(--tip-muted); }
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }

@@ -1,0 +1,28 @@
+/* Markdown rendered as prose (components/markdown.js): notes, write-ups and set cards. */
+
+.prose { max-width: 80ch; min-width: 0; }
+/* A note's title: an h1 on its own page, an h2 folded under another (components/note.js), where
+   its "##" sections render one level down and keep their look. */
+.prose .note-title { font-size: var(--fs-page); font-weight: 600; letter-spacing: -0.015em; margin: 0 0 20px; padding: 0; border: 0; }
+.prose h2, .writeup .prose h3 { font-size: var(--fs-title); margin: 32px 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.prose h2:first-child { margin-top: 0; }
+.prose h3, .writeup .prose h4 { font-size: var(--fs-table); margin: 22px 0 8px; padding: 0; border: 0; }
+.prose h2, .prose h3, .prose h4 { scroll-margin-top: 80px; }
+.prose p, .prose li { color: var(--fg); }
+.prose p { margin: 0 0 12px; }
+.prose ul { margin: 0 0 12px; padding-left: 20px; }
+.prose ol { margin: 0 0 12px; padding-left: 22px; }
+.prose li { margin-bottom: 4px; }
+.prose code { background: var(--sunken); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0 4px; }
+.prose > .panel { margin: 4px 0 18px; }
+.prose .status { display: flex; gap: 10px; align-items: baseline; margin: -2px 0 10px; font-size: var(--fs-ui); }
+.prose-table td { vertical-align: top; }
+.prose-table th { white-space: normal; vertical-align: bottom; min-width: 6em; }
+.prose-table td:first-child { white-space: nowrap; }
+.prose .fold { margin: 10px 0 14px; }
+.prose .fold > summary { white-space: normal; font-weight: 500; }
+.prose .fold[open] > summary { color: var(--fg); border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+.prose .fold .panel { margin-bottom: 12px; }
+.code-link { text-decoration: none; }
+.code-link code { color: var(--accent); }
+.code-link:hover code { text-decoration: underline; }

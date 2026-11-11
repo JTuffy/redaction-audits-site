@@ -1,0 +1,30 @@
+/* fold: a collapsible block. Boxed by default; `quiet` is a plain line that opens in place; `bare`
+   leaves the summary to the page. Plain <details> share the summary's look. */
+
+details summary { cursor: pointer; color: var(--muted); font-size: var(--fs-small); white-space: nowrap; }
+details summary:hover { color: var(--fg); }
+details p:not(.prose p) { margin: 8px 0 0; color: var(--muted); font-size: var(--fs-ui); max-width: 72ch; white-space: normal; }
+
+.fold { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); margin: 0 0 8px; }
+.fold > summary { padding: 10px 14px; font-weight: 600; font-size: var(--fs-table); display: flex; gap: 10px; align-items: baseline; white-space: normal; }
+/* The boxed summary is a flex row, which drops the native marker, so it draws its own. */
+.fold > summary::before { content: "\25B8"; flex: none; color: var(--faint); transition: transform 0.15s; }
+.fold[open] > summary::before { transform: rotate(90deg); }
+.fold-note { font-weight: 400; font-size: var(--fs-note); color: var(--faint); }
+.fold-body { padding: 0 14px 12px; }
+.fold-body > .fields { margin: 0; }
+
+.fold.quiet { border: 0; border-radius: 0; background: none; margin: 0; }
+.fold.quiet > summary::before, .fold.bare > summary::before { content: none; }
+.fold.quiet > summary { display: list-item; padding: 0; font-weight: 400; font-size: var(--fs-small); }
+.fold.quiet > .fold-body { padding: 0; }
+.fold.quiet[open] > summary { margin-bottom: 8px; }
+
+/* `bare`: the summary is the page's own markup (a Findings answer, an Overview question, a prompt
+   file), with no disclosure marker and no heading style; the page lays it out. */
+.fold.bare > summary { display: block; list-style: none; white-space: normal; font-weight: 400; font-size: inherit; }
+.fold.bare > summary::-webkit-details-marker { display: none; }
+
+/* A long write-up folded under a page */
+.fold.writeup { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 12px; }
+.fold.writeup > summary { font-weight: 500; }

@@ -1,0 +1,17 @@
+/* legend: marks and what they stand for (components/legend.js), in a row; `stacked` lists them
+   with a value each. The read key (bars.js readKey) is a legend. */
+
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin: 8px 0 0; font-size: var(--fs-note); color: var(--muted); max-width: 96ch; }
+.legend:first-child { margin-top: 0; }
+.legend + .browser, .legend + .panel { margin-top: 12px; }
+.legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.legend-note { flex-basis: auto; }
+.legend-swatch { display: inline-block; flex: none; width: 10px; height: 10px; border-radius: var(--radius-xs); }
+.legend-swatch.right { background: var(--right); }
+.legend-swatch.unsure { background: var(--unsure); }
+.legend-swatch.wrong { background: var(--wrong); }
+.legend-swatch.predicted { width: 14px; background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+
+.legend.stacked { display: grid; gap: 6px; margin-top: 14px; font-size: var(--fs-ui); color: var(--fg); }
+.legend.stacked .legend-item { display: grid; grid-template-columns: 10px 1fr auto; gap: 10px; }
+.legend-value { font-family: var(--mono); color: var(--muted); }

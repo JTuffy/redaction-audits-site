@@ -1,0 +1,16 @@
+/* The archived benchmark's set pages (archive/benchmark-set.js): the build pipeline's stages, lines
+   by kind, the runs that read a case, the version picker. */
+
+.stages { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.stage { background: var(--surface); padding: 14px 16px; }
+.stage b { display: block; font: 500 var(--fs-stat) var(--mono); }
+.stage span { font-size: var(--fs-small); color: var(--muted); }
+.stage.skipped b { color: var(--faint); }
+.grid2 { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+.kind-bar { display: flex; height: 10px; border-radius: var(--radius-sm); overflow: hidden; gap: 2px; }
+.kind-bar i { display: block; height: 100%; }
+.kinds-sub { margin-top: 14px; }
+.read-by { margin: 6px 0 0; }
+.read-by a { font-family: var(--mono); font-size: var(--fs-note); }
+#f-build { max-width: 280px; }
+@media (max-width: 640px) { .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

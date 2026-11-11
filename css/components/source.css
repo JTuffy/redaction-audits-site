@@ -1,0 +1,5 @@
+/* source: the line under a number naming what it rests on (experiments, data, judges, counts). */
+
+.source { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: 6px 0 0; font-size: var(--fs-label); color: var(--muted); line-height: 1.5; max-width: none; }
+.source b { font-weight: 500; color: var(--faint); margin-right: 2px; }
+.source a.mono, .source span.mono { font-size: var(--fs-label); }

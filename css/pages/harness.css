@@ -1,0 +1,7 @@
+/* Harness (pages/harness): the prompt templates, one fold per file. */
+
+pre.prompt { white-space: pre-wrap; font-family: var(--mono); font-size: var(--fs-note); line-height: 1.5; background: var(--sunken); padding: 10px 12px; border-radius: var(--radius); margin: 6px 0 0; max-height: 420px; overflow: auto; }
+.fold.prompt-file { margin: 0 0 10px; }
+.fold.prompt-file + .fold.prompt-file { border-top: 1px solid var(--line); }
+.fold.prompt-file > summary { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 200px) 90px auto; gap: 12px; align-items: center; padding: 6px 0; font-size: var(--fs-small); }
+.fold.prompt-file > summary .badge { justify-self: start; }

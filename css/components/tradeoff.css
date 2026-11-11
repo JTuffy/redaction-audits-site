@@ -1,0 +1,14 @@
+/* tradeoff: verdict right against secret recovered, one mark per policy and judge. It shrinks
+   with the page down to a width where its labels stay legible, then scrolls sideways. */
+.tradeoff { display: block; width: 100%; min-width: 460px; max-width: 680px; height: auto; overflow: visible; font-family: var(--sans); }
+.tradeoff-grid { stroke: var(--line); stroke-width: 1; }
+.tradeoff-tick { fill: var(--faint); font-size: var(--fs-micro); }
+.tradeoff-axis { fill: var(--muted); font-size: var(--fs-micro); }
+.tradeoff-corner { fill: var(--faint); font-size: var(--fs-micro); }
+.tradeoff-guess { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 3 3; }
+.tradeoff-link { fill: none; stroke: var(--line-strong); stroke-width: 1.5; }
+.tradeoff-label { fill: var(--fg); font-size: var(--fs-tiny); font-weight: 500; }
+.tradeoff-hit { fill: transparent; }
+.tradeoff-mark :is(circle, rect, path):not([class]) { stroke: var(--surface); stroke-width: 2; }
+.tradeoff-mark:hover :is(circle, rect, path):not([class]), .tradeoff-mark:focus :is(circle, rect, path):not([class]) { stroke: var(--fg); }
+.tradeoff-mark:focus { outline: none; }

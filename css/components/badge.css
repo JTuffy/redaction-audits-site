@@ -1,0 +1,12 @@
+/* badge: a pill whose tone is pass, warn, fail or info; the dirty-run dot; label colours. */
+
+.badge { display: inline-block; font-size: var(--fs-label); font-weight: 500; padding: 1px 8px; border-radius: var(--radius-pill);
+  border: 0; background: var(--sunken); color: var(--muted); white-space: nowrap; line-height: 1.6; }
+.badge.pass { color: var(--pass); background: color-mix(in srgb, var(--pass) 12%, transparent); }
+.badge.fail { color: var(--fail); background: color-mix(in srgb, var(--fail) 12%, transparent); }
+.badge.warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+.badge.info { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--warn); margin-left: 6px; vertical-align: 1px; }
+.label-violation { color: var(--fail); }
+.label-red_herring { color: var(--warn); }
+.label-clean { color: var(--pass); }

@@ -1,0 +1,60 @@
+/* Findings (pages/findings): one folding panel per question, its answer on top; the bars, the
+   policy and judge toggles, and the prediction chart. */
+
+.findings { display: flex; flex-direction: column; gap: 18px; }
+.findings-status { margin: 0; font-size: var(--fs-small); }
+.findings-part { margin: 10px 0 -6px; }
+.findings-part h2 { font-size: var(--fs-heading); }
+.findings-part p { margin: 2px 0 0; font-size: var(--fs-table); }
+
+/* A panel: question and answer always shown, "Show evidence" opens the rest */
+.fold.answer { margin: 0; padding: 14px 16px 12px; min-width: 0; }
+.fold.answer > summary { padding: 0 28px 0 0; position: relative; color: var(--fg); }
+.fold.answer > summary::after { content: "Show evidence ▾"; position: absolute; right: 0; top: 2px; font-size: var(--fs-label); color: var(--accent); white-space: nowrap; }
+.fold.answer[open] > summary::after { content: "Hide ▴"; }
+.fold.answer > summary:hover h3 { text-decoration: underline; }
+.fold.answer > summary h3 { font-size: var(--fs-title); font-weight: 600; margin: 0; padding-right: 90px; }
+.fold.answer > .fold-body { margin-top: 10px; padding: 10px 0 0; border-top: 1px solid var(--line); }
+.answer-text { margin: 6px 0 0; font-size: var(--fs-item); max-width: 86ch; line-height: 1.5; }
+.answer-text b { font-weight: 600; }
+.answer-note { margin: 4px 0 10px; color: var(--muted); font-size: var(--fs-small); max-width: 80ch; }
+.answer-foot { margin: 8px 0 0; font-size: var(--fs-note); }
+.answer-tools { margin: 0 0 8px; }
+.answer-table td:first-child { white-space: normal; min-width: 10em; }
+.answer-table tr.group-row td { white-space: normal; }
+.answer-table th:not(:first-child), .answer-table td:not(:first-child) { white-space: nowrap; }
+.answer-table tr.baseline-row td { color: var(--muted); }
+
+.seg-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.seg-toggle button { font: inherit; font-size: var(--fs-note); padding: 3px 10px; border: 0; background: var(--surface); color: var(--muted); cursor: pointer; }
+.seg-toggle button + button { border-left: 1px solid var(--line); }
+.seg-toggle button[aria-pressed="true"] { background: var(--accent-soft); color: var(--fg); }
+
+/* The prediction chart: one row per cell, predicted side shaded, each judge a mark with its interval */
+table.shift-chart td.shift-cell { width: 55%; min-width: 240px; padding-top: 4px; padding-bottom: 4px; }
+table.shift-chart td.shift-cell svg { display: block; width: 100%; height: auto; overflow: visible; }
+.shift-band { fill: var(--accent-soft); }
+.shift-zero { stroke: var(--line-strong); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.shift-judge line { stroke-width: 2; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.shift-judge circle, .shift-judge rect:not(.shift-hit), .shift-judge path { stroke: var(--surface); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.shift-hit { fill: transparent; }
+.shift-judge:hover line, .shift-judge:focus line { stroke-width: 3; }
+.shift-judge:focus { outline: none; }
+.shift-way { font-size: var(--fs-note); color: var(--muted); }
+.shift-way.way0 { color: var(--faint); }
+tr.shift-axis td { border-bottom: 0; padding-top: 2px; font-size: var(--fs-tiny); color: var(--faint); }
+tr.shift-axis td:last-child { display: flex; justify-content: space-between; gap: 8px; }
+
+@media (max-width: 640px) {
+  .fold.answer { padding: 12px; }
+  .answer-table td:first-child { min-width: 8em; }
+  /* The prediction chart stacks: the case and its prediction, then the full-width chart. */
+  table.shift-chart, table.shift-chart tbody, table.shift-chart tr, table.shift-chart td { display: block; width: 100%; }
+  table.shift-chart thead { display: none; }
+  table.shift-chart tr:not(.group-row):not(.shift-axis) { padding: 8px 0 6px; border-bottom: 1px solid var(--line); }
+  table.shift-chart tr.group-row td { padding: 6px 8px; }
+  table.shift-chart tr td.shift-way, table.shift-chart tr td:not(.shift-way) { border: 0; padding: 1px 0; min-width: 0; white-space: normal; }
+  table.shift-chart tr td.shift-cell { padding-top: 4px; }
+  table.shift-chart tr.shift-axis td:not(:last-child) { display: none; }
+  table.shift-chart tr.shift-axis td:last-child { display: flex; }
+}

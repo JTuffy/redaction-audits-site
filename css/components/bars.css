@@ -1,0 +1,33 @@
+/* bars: the three-way bar (validator calls or judge reads), reads and secret guesses with their
+   number beside them, and the progress meter.
+   Right and decidable are green, unsure and can't decide amber, wrong and may mislead red. */
+
+.bar { display: flex; width: 100%; max-width: 160px; height: 6px; border-radius: var(--radius-xs); overflow: hidden; background: var(--sunken); }
+.bar i { display: block; height: 100%; }
+.bar .right { background: var(--right); }
+.bar .unsure { background: var(--unsure); }
+.bar .wrong { background: var(--wrong); }
+/* A judge's reads beside a number (Findings, run pages): wider, taller, segments parted. */
+.bar.reads { display: inline-flex; width: 96px; max-width: none; height: 8px; border-radius: var(--radius-sm); vertical-align: middle; }
+.bar.reads i + i { box-shadow: inset 2px 0 0 var(--surface); }
+/* The number beside a bar (named with its outcome beside a judge's reads), and the share unsure
+   beside that */
+.bar-value { display: inline-block; min-width: 3.2em; margin-left: 8px; font-variant-numeric: tabular-nums; font-size: var(--fs-small); }
+.bar-value.named { min-width: 5.4em; }
+.bar-unsure { display: inline-block; min-width: 6.5em; margin-left: 2px; color: var(--faint); font-size: var(--fs-label); font-variant-numeric: tabular-nums; }
+/* A probability as a thin bar, the blind guess ticked */
+.guess-bar { position: relative; display: inline-block; width: 80px; height: 8px; border-radius: var(--radius-sm); background: var(--sunken); vertical-align: middle; }
+.guess-fill { position: absolute; inset: 0 auto 0 0; border-radius: var(--radius-sm); background: var(--accent); opacity: 0.75; }
+.guess-tick { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--fg); opacity: 0.6; }
+@media (max-width: 860px) {
+  .bar-unsure { display: block; margin: 0; min-width: 0; }
+}
+@media (max-width: 640px) {
+  .bar.reads { width: 44px; }
+  .guess-bar { width: 40px; }
+  .bar-value { min-width: 2.6em; margin-left: 6px; }
+  .bar-value.named { min-width: 0; }
+}
+
+.meter { display: inline-block; width: 80px; height: 6px; border-radius: var(--radius-xs); background: var(--sunken); overflow: hidden; vertical-align: middle; }
+.meter i { display: block; height: 100%; background: var(--accent); }

@@ -1,0 +1,8 @@
+/* Notes (pages/notes): the glossary. The article and its side list are components/note. */
+
+.glossary { margin: 0; display: grid; gap: 10px; max-width: 90ch; }
+.glossary > div { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 4px 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.glossary dt { font-weight: 600; }
+.glossary dd { margin: 0; color: var(--muted); }
+.glossary code { display: block; margin-top: 4px; }
+@media (max-width: 640px) { .glossary > div { grid-template-columns: minmax(0, 1fr); } }

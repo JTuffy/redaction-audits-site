@@ -1,0 +1,7 @@
+/* subnav: the tabs under a page title; a link out (transcripts) sits at the far end. */
+
+.tabs { display: flex; gap: 20px; margin-top: 22px; border-bottom: 1px solid var(--line); overflow-x: auto; overflow-y: hidden; }
+.tabs a { text-decoration: none; color: var(--muted); padding: 8px 0; margin-bottom: -1px; border-bottom: 2px solid transparent; font-size: var(--fs-table); white-space: nowrap; }
+.tabs a:hover { color: var(--fg); }
+.tabs a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--fg); font-weight: 500; }
+.tabs a.ext { margin-left: auto; font-size: var(--fs-ui); }

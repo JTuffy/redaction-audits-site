@@ -1,0 +1,55 @@
+/* Runs (pages/runs): a run's page and its cases tab, and an ablation's page. */
+
+/* ---------- A run's page ---------- */
+.io { display: grid; gap: 32px; }
+.setup { display: grid; gap: 10px; }
+.fold.run-setup { margin: 0 0 18px; }
+/* The benchmark-era metrics, folded under the reads and secret guesses */
+.fold.run-bench { margin: 0 0 24px; }
+.fold.run-bench > .fold-body > section { margin-top: 24px; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 14px; font-size: var(--fs-ui); }
+.checks span.muted { margin-left: 6px; font-family: var(--mono); font-size: var(--fs-note); }
+
+/* Judge score by case: unedited to edited on a small line */
+.score-table td { vertical-align: middle; }
+.score-cell { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.score-num { font-size: var(--fs-small); min-width: 64px; }
+.score-grid { stroke: var(--line); stroke-width: 1; }
+.score-line { stroke: var(--line-strong); stroke-width: 2; stroke-linecap: round; }
+.score-before { fill: var(--surface); stroke: var(--fg); stroke-width: 1.75; }
+.score-after { fill: var(--fg); stroke: var(--surface); stroke-width: 1.5; }
+.score-mark { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.score-mark.before { border: 1.75px solid var(--fg); }
+.score-mark.after { background: var(--fg); }
+
+/* Cells shaded by a number: leakage, or a score's shift */
+td.leak { background: color-mix(in srgb, var(--secret) calc(var(--l) * 40%), transparent); }
+td.shift-up { background: color-mix(in srgb, var(--up) calc(var(--s) * 38%), transparent); }
+td.shift-down { background: color-mix(in srgb, var(--down) calc(var(--s) * 38%), transparent); }
+.delta { color: var(--muted); font-size: var(--fs-note); margin-left: 6px; }
+
+/* ---------- A run's cases ---------- */
+.variations { margin: 12px 0 14px; }
+.variations-label { margin: 12px 0 6px; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.finding-text { margin: 0; font-size: var(--fs-title); line-height: 1.5; font-weight: 500; }
+.request-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.request { border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; }
+.request-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: baseline; }
+.request-n { color: var(--faint); font-size: var(--fs-label); }
+.request-span { font-family: var(--mono); font-size: var(--fs-small); overflow-wrap: anywhere; }
+.request-body { margin-top: 8px; }
+.request-body dd { font-size: var(--fs-ui); }
+.request-why { display: block; color: var(--muted); }
+.prompt-bar { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.prompt-view { border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 12px 14px; background: var(--surface); display: grid; gap: 8px; }
+
+/* The score grid (score-grid.js): as tall as its rows for a short run, and a colour per outcome. */
+.score-grid { height: auto; }
+.score-grid.ag-theme-quartz, .score-grid.ag-theme-quartz-dark { min-height: 120px; }
+.score-grid .ag-layout-normal { height: 640px; }
+.score-grid .read-right { color: var(--pass); }
+.score-grid .read-unsure { color: var(--warn); }
+.score-grid .read-wrong { color: var(--fail); }
+/* What the judge said (samples.js): the unedited reads beside the edited ones. */
+.said-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-bottom: 12px; }
+@media (max-width: 860px) { .said-cols { grid-template-columns: minmax(0, 1fr); } }

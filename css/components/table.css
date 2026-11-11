@@ -1,0 +1,24 @@
+/* table: numbers right-aligned and the first column left unless the table is `left`; inside a
+   panel the outer cells get the panel's padding. `labelled` tables name each row in bold. */
+
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: var(--fs-table); }
+th, td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; vertical-align: middle; }
+th { font-weight: 500; font-size: var(--fs-note); color: var(--muted); background: var(--sunken); border-bottom-color: var(--line-strong); }
+th:first-child, td:first-child { text-align: left; }
+tbody tr:last-child td { border-bottom: 0; }
+.panel > .scroll > table th:first-child, .panel > .scroll > table td:first-child { padding-left: 16px; }
+.panel > .scroll > table th:last-child, .panel > .scroll > table td:last-child { padding-right: 16px; }
+.panel > .scroll > table thead th:first-child { border-top-left-radius: var(--radius-lg); }
+.panel > .scroll > table thead th:last-child { border-top-right-radius: var(--radius-lg); }
+table.left th, table.left td, table th.left, table td.left { text-align: left; }
+table .num, table.left .num { text-align: right; }
+td.wrap { white-space: normal; }
+.mono-cell { font-family: var(--mono); font-size: var(--fs-small); }
+tr.link { cursor: pointer; }
+tr.link:hover td { background: var(--accent-soft); }
+tr.sel td { background: var(--accent-soft); }
+.group-row td { background: var(--sunken); font-size: var(--fs-note); color: var(--muted); font-weight: 500; padding-top: 6px; padding-bottom: 6px; }
+
+table.labelled td { white-space: normal; vertical-align: top; }
+table.labelled td:first-child { font-weight: 500; white-space: nowrap; }

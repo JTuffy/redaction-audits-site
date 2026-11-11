@@ -1,0 +1,16 @@
+/* note: a markdown note as an article; `sided` puts a list of pages and sections beside it (the
+   Notes tab, and a long note), and without it a folded write-up takes the full width. */
+
+.note > article { min-width: 0; max-width: 100%; }
+.note.sided { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 48px; align-items: start; }
+.note-side { position: sticky; top: 88px; display: grid; gap: 2px; }
+.note-side a { text-decoration: none; color: var(--muted); padding: 6px 10px; border-radius: var(--radius); font-size: var(--fs-table); }
+.note-side a:hover { color: var(--fg); background: var(--sunken); }
+.note-side a[aria-current="page"] { color: var(--fg); background: var(--sunken); font-weight: 500; }
+.note-side-sub { display: grid; gap: 0; margin: 2px 0 8px 10px; padding-left: 8px; border-left: 1px solid var(--line); max-height: calc(100vh - 220px); overflow-y: auto; }
+.note-side-sub a { font-size: var(--fs-note); padding: 4px 8px; line-height: 1.35; }
+@media (max-width: 640px) {
+  .note.sided { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .note-side-sub { display: none; }
+  .note-side { position: static; display: flex; flex-wrap: wrap; gap: 4px; }
+}

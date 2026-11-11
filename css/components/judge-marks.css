@@ -1,0 +1,7 @@
+/* judge-mark: a judge's symbol in a chart, coloured by its place in the judge order (--j1…--j4).
+   Only the unclassed shapes are filled, so a chart's hit areas and bands keep their own look. */
+.judge-mark.j1 { --judge: var(--j1); } .judge-mark.j2 { --judge: var(--j2); }
+.judge-mark.j3 { --judge: var(--j3); } .judge-mark.j4 { --judge: var(--j4); }
+.judge-mark line { stroke: var(--judge); }
+.judge-mark :is(circle, rect, path):not([class]) { fill: var(--judge); }
+.judge-swatch { width: 12px; height: 12px; overflow: visible; flex: none; }

@@ -1,0 +1,124 @@
+/* Simulator (pages/simulator): the claim cards, the sets table, and a set's case explorer. */
+
+/* ---------- Claim cards ---------- */
+.claim-cards { display: grid; gap: 16px; }
+.claim-card { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); padding: 16px 18px; }
+.claim-card > header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 8px; }
+.claim-card > header h2 { margin: 0; font-size: var(--fs-lead); }
+.claim-card > header code { margin-left: auto; font-size: var(--fs-label); }
+.claim-card > footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: center; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.claim-statement { margin: 0 0 14px; padding: 8px 12px; border-left: 3px solid var(--line-strong); color: var(--fg); font-size: var(--fs-body); background: var(--sunken); border-radius: 0 var(--radius) var(--radius) 0; }
+.claim-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 10px; }
+.claim-grid h3 { margin: 0 0 6px; font-size: var(--fs-tiny); text-transform: uppercase; letter-spacing: 0.04em; color: var(--faint); font-weight: 500; }
+.claim-grid p { margin: 0 0 6px; font-size: var(--fs-ui); }
+.claim-grid .claim-sub, .claim-grid .claim-short { color: var(--muted); font-size: var(--fs-note); }
+.claim-list { margin: 0 0 6px; padding-left: 16px; font-size: var(--fs-ui); display: grid; gap: 2px; list-style: disc; }
+.claim-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.claim-sets { display: flex; flex-wrap: wrap; gap: 8px; }
+.claim-set { padding: 4px 10px; border: 1px solid var(--line); border-radius: var(--radius-pill); font-size: var(--fs-small); text-decoration: none; }
+.claim-set:hover { background: var(--sunken); }
+@media (max-width: 860px) { .claim-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Sets: one row per claim, its hard and calibration sets side by side ---------- */
+table.sets td { vertical-align: top; }
+.sets th .faint { font-weight: 400; font-size: var(--fs-label); margin-left: 4px; }
+.set-cell { display: grid; gap: 4px; color: inherit; text-decoration: none; }
+.set-cell:hover b { text-decoration: underline; }
+.set-cell .bar { width: 160px; }
+@media (max-width: 640px) { /* each claim stacks: its title, then each set under its label */
+  table.sets, table.sets tbody, table.sets tr, table.sets td { display: block; width: 100%; }
+  table.sets thead { display: none; }
+  table.sets tr { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .panel > .scroll > table.sets td { border: 0; padding: 4px 0; }
+  table.sets td[data-label]::before { content: attr(data-label); display: block; font-size: var(--fs-label); color: var(--faint); margin-top: 4px; }
+}
+
+/* ---------- A set's case explorer ---------- */
+.sim-picks { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 6px; }
+.sim-pick { font: inherit; text-align: left; display: grid; gap: 2px; padding: 8px 12px; border-radius: var(--radius); border: 1px solid var(--line); border-left-width: 3px; background: var(--surface); color: var(--fg); cursor: pointer; min-width: 11em; }
+.sim-pick b { font: 600 var(--fs-body) var(--mono); }
+.sim-pick.pass { border-left-color: var(--right); }
+.sim-pick.warn { border-left-color: var(--unsure); }
+.sim-pick.fail { border-left-color: var(--wrong); }
+.sim-pick:hover { background: var(--sunken); }
+.sim-pick[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.sim-run-pick select { margin-left: 6px; font: inherit; padding: 3px 6px; border-color: var(--line); }
+
+/* Families as rows of dots: filled for a violation, hollow for a red herring, coloured by the call */
+.fam-list li { display: flex; align-items: center; gap: 12px; padding: 9px 12px; }
+.fam-list .browser-id { min-width: 44px; font-family: var(--mono); font-size: var(--fs-small); }
+.call-dots { display: flex; flex-wrap: wrap; gap: 5px; }
+.call-dot { display: inline-block; flex: none; width: 11px; height: 11px; border-radius: 50%; border: 2px solid currentColor; box-sizing: border-box; vertical-align: -1px; }
+.call-dot.violation { background: currentColor; }
+.call-dot.red_herring { background: transparent; }
+.call-dot.judge-wrong { box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--wrong); }
+.call-dot.call-decidable { color: var(--right); }
+.call-dot.call-cant_decide { color: var(--unsure); }
+.call-dot.call-may_mislead { color: var(--wrong); }
+/* A call named in text */
+.call-decidable { color: var(--pass); }
+.call-cant_decide { color: var(--warn); }
+.call-may_mislead { color: var(--fail); }
+
+/* One family and one case */
+.sim-detail { grid-template-columns: minmax(0, 1fr); min-height: 720px; }
+.sim-detail .panel { margin-bottom: 4px; }
+.sim-variants tr.link:hover td { background: var(--sunken); }
+.sim-variants tr.on td { background: var(--accent-soft); }
+.sim-variants tr.on td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.sim-variants a[aria-current] { font-weight: 500; }
+.sim-verdict { margin: 14px 0 10px; max-width: 80ch; font-size: var(--fs-body); display: flex; gap: 8px; align-items: baseline; }
+.sim-meta { margin-top: 10px; }
+.sim-block { display: grid; gap: 8px; min-width: 0; grid-template-columns: minmax(0, 1fr); }
+.sim-block h4 { margin: 0; font-size: var(--fs-ui); font-weight: 600; }
+.sim-blockhead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.sim-like { margin: 0; padding: 6px 10px; border-left: 3px solid var(--warn); background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 var(--radius) var(--radius) 0; font-size: var(--fs-ui); }
+.sim-chain { margin: 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.sim-chain li { display: grid; grid-template-columns: 8.5em minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 8px 12px; font-size: var(--fs-table); }
+.sim-chain li + li { border-top: 1px solid var(--line); }
+.sim-st { font: 600 var(--fs-label) var(--sans); }
+.state-kept .sim-st { color: var(--pass); }
+.state-guessable .sim-st { color: var(--warn); }
+.state-cut .sim-st, .state-not_stated .sim-st, .state-looks_same .sim-st { color: var(--fail); }
+.state-cut .sim-says, .state-not_stated .sim-says { text-decoration: line-through 1px var(--fail); text-decoration-skip-ink: none; color: var(--muted); }
+.state-looks_same { background: color-mix(in srgb, var(--fail) 6%, transparent); }
+.sim-via { font-size: var(--fs-note); color: var(--muted); text-align: right; }
+.sim-via .mono { font-size: var(--fs-label); }
+.sim-tag { display: inline-block; font: 500 var(--fs-micro) var(--sans); color: var(--surface); background: var(--fg); border-radius: var(--radius-xs); padding: 0 6px; line-height: 1.6; }
+mark.sim-diff { background: color-mix(in srgb, var(--accent) 24%, transparent); color: inherit; border-radius: var(--radius-xs); padding: 0 1px; }
+.sim-quoted div.only { box-shadow: inset 3px 0 0 var(--accent); }
+
+/* The judge's reads on a 0–100 line, then each read's reason */
+.sim-stripwrap { max-width: 520px; }
+.sim-strip { width: 100%; height: auto; display: block; }
+.sim-strip line { stroke: var(--line-strong); stroke-width: 1; }
+.sim-strip .band { fill: var(--sunken); }
+.sim-strip circle { stroke-width: 1.6; }
+.sim-strip circle.before { fill: var(--surface); stroke: var(--muted); }
+.sim-strip circle.before.right { stroke: var(--right); }
+.sim-strip circle.before.wrong { stroke: var(--wrong); }
+.sim-strip circle.before.unsure { stroke: var(--unsure); }
+.sim-strip circle.after { stroke: var(--surface); stroke-width: 1.2; }
+.sim-strip circle.after.right { fill: var(--right); }
+.sim-strip circle.after.wrong { fill: var(--wrong); }
+.sim-strip circle.after.unsure { fill: var(--unsure); }
+.sim-reasons { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.sim-reasons li { display: grid; grid-template-columns: 2.6em minmax(0, 1fr); gap: 10px; align-items: start; font-size: var(--fs-ui); }
+.sim-reasons p { margin: 0; max-width: 75ch; }
+.sim-score { font: 600 var(--fs-small) var(--mono); text-align: center; border-radius: var(--radius-sm); padding: 1px 0; border: 1px solid var(--line-strong); color: var(--muted); }
+.sim-score.right { color: var(--pass); border-color: color-mix(in srgb, var(--pass) 45%, transparent); }
+.sim-score.wrong { color: var(--fail); border-color: color-mix(in srgb, var(--fail) 45%, transparent); }
+
+/* The lab and what happened */
+.sim-two { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 20px; align-items: start; }
+.sim-two > * { min-width: 0; }
+.sim-cast { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: var(--fs-table); }
+.sim-events { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font-size: var(--fs-table); }
+.sim-events li { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 10px; padding: 3px 6px; border-radius: var(--radius-sm); }
+.sim-events time { font: var(--fs-label) var(--mono); color: var(--muted); padding-top: 2px; }
+@media (max-width: 1000px) { .sim-two { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 860px) {
+  .sim-events li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .sim-chain li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .sim-via { text-align: left; }
+}
