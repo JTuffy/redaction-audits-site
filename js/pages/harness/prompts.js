@@ -2,12 +2,12 @@
    shows its id (its file name) and a version (a hash of its text). They are the templates at this
    site's commit: a run records the ones it used, and a new variant is one more file. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { ROLE, ROLES } from "../../lib/labels.js?v=0cb80a196f";
-import { promptRole } from "../../data/prompts.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { badge, fold } from "../../components/blocks.js?v=0cb80a196f";
-import { section } from "../../components/page.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { ROLE, ROLES } from "../../lib/labels.js?v=2275844be3";
+import { promptRole } from "../../data/prompts.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { badge, fold } from "../../components/blocks.js?v=2275844be3";
+import { section } from "../../components/page.js?v=2275844be3";
 
 /* A template's kind: a variant of another template (its name extends that one's), or its family. */
 function kindOf(n, all) {

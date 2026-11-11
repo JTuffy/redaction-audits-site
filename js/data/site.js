@@ -1,7 +1,7 @@
 /* The site's data: data/site.json, set once when it arrives (setSite), and the files loaded on
    demand (a set's families, a run's reasons, a benchmark build). */
 
-import { rerender } from "../lib/view-state.js?v=0cb80a196f";
+import { rerender } from "../lib/view-state.js?v=2275844be3";
 
 export let SITE = null;
 export function setSite(site) { SITE = site; }

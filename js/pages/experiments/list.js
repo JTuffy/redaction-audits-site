@@ -1,13 +1,13 @@
 /* The experiments list: the live experiments grouped by the sub-question each
    answers (direction.toml `group`), then pilots, others and ideas, folded. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { byJudge } from "../../data/constants.js?v=0cb80a196f";
-import { experimentHref, experiments, mainQuestions, subQuestions } from "../../data/experiments.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { badge, fold } from "../../components/blocks.js?v=0cb80a196f";
-import { answers as findingsAnswers } from "../../data/answers.js?v=0cb80a196f";
-import { ENDED, pill, progressMeter, progressOf } from "./progress.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { byJudge } from "../../data/constants.js?v=2275844be3";
+import { experimentHref, experiments, mainQuestions, subQuestions } from "../../data/experiments.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { badge, fold } from "../../components/blocks.js?v=2275844be3";
+import { answers as findingsAnswers } from "../../data/answers.js?v=2275844be3";
+import { ENDED, pill, progressMeter, progressOf } from "./progress.js?v=2275844be3";
 
 /* The main questions a group of experiments bears on: its own sub-question's, and any other whose
    sub-questions rest on every experiment in the group (the policy runs answer leakage too). */

@@ -1,7 +1,7 @@
 /* palette: a search box over every place on the site, opened by its button or Ctrl K (Cmd K).
    Type to narrow, the arrows move the choice, Enter goes there, Escape closes. */
 
-import { esc } from "../lib/dom.js?v=0cb80a196f";
+import { esc } from "../lib/dom.js?v=2275844be3";
 
 const SHOWN = 12; // matches listed at once: a list to pick from, not to scroll
 

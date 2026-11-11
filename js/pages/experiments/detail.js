@@ -2,18 +2,18 @@
    and result; one without leads with its hypothesis. Then reasoning, the expectations as written,
    design, progress, and its runs. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { money } from "../../lib/format.js?v=0cb80a196f";
-import { judgeName, policyName, stanceName } from "../../data/constants.js?v=0cb80a196f";
-import { datasetHref, datasetNamed, datasetOfVersion } from "../../data/datasets.js?v=0cb80a196f";
-import { experimentHref, planOf, studyOf, subOf } from "../../data/experiments.js?v=0cb80a196f";
-import { runHref, runJudge } from "../../data/runs.js?v=0cb80a196f";
-import { fold, num, table } from "../../components/blocks.js?v=0cb80a196f";
-import { crumbs } from "../../components/crumbs.js?v=0cb80a196f";
-import { section } from "../../components/page.js?v=0cb80a196f";
-import { answers as findingsAnswers } from "../../data/answers.js?v=0cb80a196f";
-import { expectationOf, pill, progressMeter, progressOf, recorded, runsOf } from "./progress.js?v=0cb80a196f";
-import { cellTable, checksBlock, reviewBlock } from "./study.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { money } from "../../lib/format.js?v=2275844be3";
+import { judgeName, policyName, stanceName } from "../../data/constants.js?v=2275844be3";
+import { datasetHref, datasetNamed, datasetOfVersion } from "../../data/datasets.js?v=2275844be3";
+import { experimentHref, planOf, studyOf, subOf } from "../../data/experiments.js?v=2275844be3";
+import { runHref, runJudge } from "../../data/runs.js?v=2275844be3";
+import { fold, num, table } from "../../components/blocks.js?v=2275844be3";
+import { crumbs } from "../../components/crumbs.js?v=2275844be3";
+import { section } from "../../components/page.js?v=2275844be3";
+import { answers as findingsAnswers } from "../../data/answers.js?v=2275844be3";
+import { expectationOf, pill, progressMeter, progressOf, recorded, runsOf } from "./progress.js?v=2275844be3";
+import { cellTable, checksBlock, reviewBlock } from "./study.js?v=2275844be3";
 
 const datasetLink = (d, fallback) => (d ? `<a href="${datasetHref(d)}">${esc(d.title)}</a>` : esc(fallback));
 
@@ -73,5 +73,4 @@ export function experimentPage(x) {
     + section("Progress", progress);
   const body = x.result ? outcome + hypothesis + setup : hypothesis + setup + outcome;
   return head + body + fold(`Runs <span class="count">${runs.length}</span>`, runsTable(runs), { cls: "quiet experiment-fold" });
-});
 }

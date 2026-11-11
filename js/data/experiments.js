@@ -1,7 +1,7 @@
 /* Experiments (research/direction.toml), the questions they answer, the studies and plans behind
    them, and the runs each owns. */
 
-import { SITE } from "./site.js?v=0cb80a196f";
+import { SITE } from "./site.js?v=2275844be3";
 
 export const experiments = () => SITE.direction?.experiment || [];
 export const experimentNamed = (id) => experiments().find((x) => x.id === id) || null;

@@ -1,10 +1,10 @@
 /* Notes → Glossary: the terms in docs/glossary.toml that have a group, under their groups. The same
    text shows on hover wherever a term appears. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { glossaryEntry, glossaryKeys } from "../../lib/tips.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { section } from "../../components/page.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { glossaryEntry, glossaryKeys } from "../../lib/tips.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { section } from "../../components/page.js?v=2275844be3";
 
 export function glossary() {
   const entries = glossaryKeys().map((k) => [k, glossaryEntry(k)]);

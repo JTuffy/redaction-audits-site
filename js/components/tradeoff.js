@@ -2,10 +2,10 @@
    one mark per policy and judge. The two questions in one picture: up is signal kept, left is
    secret hidden, so the best policy sits top left and unedited evidence top right. */
 
-import { esc } from "../lib/dom.js?v=0cb80a196f";
-import { dataTip } from "../lib/tips.js?v=0cb80a196f";
-import { judgeClass, judgeMark, judgeSwatch } from "./judge-marks.js?v=0cb80a196f";
-import { legend } from "./legend.js?v=0cb80a196f";
+import { esc } from "../lib/dom.js?v=2275844be3";
+import { dataTip } from "../lib/tips.js?v=2275844be3";
+import { judgeClass, judgeMark, judgeSwatch } from "./judge-marks.js?v=2275844be3";
+import { legend } from "./legend.js?v=2275844be3";
 
 const W = 520, H = 342;
 const PAD = { left: 46, right: 14, top: 26, bottom: 42 };

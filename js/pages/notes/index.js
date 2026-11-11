@@ -1,14 +1,14 @@
 /* Notes: the markdown pages under docs/notes, then the glossary. The long write-ups other tabs fold
    under their pages (Simulator: pipeline.md; Harness: protocol.md) stay off this list. */
 
-import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
-import { codeHref } from "../../data/links.js?v=0cb80a196f";
-import { notePages } from "../../data/notes.js?v=0cb80a196f";
-import { countedSince } from "../../data/runs.js?v=0cb80a196f";
-import { staleNote } from "../../components/stale.js?v=0cb80a196f";
-import { noteArticle, noteHeadings, sectionLinks } from "../../components/note.js?v=0cb80a196f";
-import { pageHead } from "../../components/page.js?v=0cb80a196f";
-import { glossary } from "./glossary.js?v=0cb80a196f";
+import { $, esc } from "../../lib/dom.js?v=2275844be3";
+import { codeHref } from "../../data/links.js?v=2275844be3";
+import { notePages } from "../../data/notes.js?v=2275844be3";
+import { countedSince } from "../../data/runs.js?v=2275844be3";
+import { staleNote } from "../../components/stale.js?v=2275844be3";
+import { noteArticle, noteHeadings, sectionLinks } from "../../components/note.js?v=2275844be3";
+import { pageHead } from "../../components/page.js?v=2275844be3";
+import { glossary } from "./glossary.js?v=2275844be3";
 
 /* Notes another tab shows; Notes leaves them out of its list. */
 const SHOWN_ELSEWHERE = new Set(["protocol", "pipeline"]);

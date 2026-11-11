@@ -2,10 +2,10 @@
    lines hidden until the reader shows them; and the marks inside a line: redaction markers, the
    details that give a secret away, and secret values. */
 
-import { esc } from "../lib/dom.js?v=0cb80a196f";
-import { human } from "../lib/format.js?v=0cb80a196f";
-import { term } from "../lib/tips.js?v=0cb80a196f";
-import { rerender, state } from "../lib/view-state.js?v=0cb80a196f";
+import { esc } from "../lib/dom.js?v=2275844be3";
+import { human } from "../lib/format.js?v=2275844be3";
+import { term } from "../lib/tips.js?v=2275844be3";
+import { rerender, state } from "../lib/view-state.js?v=2275844be3";
 
 const pattern = (s) => new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
 

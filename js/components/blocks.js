@@ -12,8 +12,8 @@
    labelBadge the case label (violation, red herring)
    choice     a row of selectable cards (policy variations, judges) */
 
-import { esc } from "../lib/dom.js?v=0cb80a196f";
-import { LABELS, tone } from "../lib/labels.js?v=0cb80a196f";
+import { esc } from "../lib/dom.js?v=2275844be3";
+import { LABELS, tone } from "../lib/labels.js?v=2275844be3";
 
 export const fields = (items, cls = "") =>
   `<dl class="fields${cls ? ` ${cls}` : ""}">${items.filter(Boolean).map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`;

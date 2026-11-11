@@ -2,16 +2,16 @@
    with its size, how many cases the validator says text redaction leaves decidable, and its runs;
    and the numbers that sum them up, which the Simulator overview shows too. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { READING } from "../../lib/labels.js?v=0cb80a196f";
-import { currentOf, currentSimSets, datasetHref, datasetOfSet, simSummary } from "../../data/datasets.js?v=0cb80a196f";
-import { ledgerEntry } from "../../data/runs.js?v=0cb80a196f";
-import { readings } from "../../data/constants.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { ruleOf } from "../../data/studies.js?v=0cb80a196f";
-import { callItems, decidableShare, splitBar } from "../../components/bars.js?v=0cb80a196f";
-import { badge, cell, stats, table } from "../../components/blocks.js?v=0cb80a196f";
-import { legend } from "../../components/legend.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { READING } from "../../lib/labels.js?v=2275844be3";
+import { currentOf, currentSimSets, datasetHref, datasetOfSet, simSummary } from "../../data/datasets.js?v=2275844be3";
+import { ledgerEntry } from "../../data/runs.js?v=2275844be3";
+import { readings } from "../../data/constants.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { ruleOf } from "../../data/studies.js?v=2275844be3";
+import { callItems, decidableShare, splitBar } from "../../components/bars.js?v=2275844be3";
+import { badge, cell, stats, table } from "../../components/blocks.js?v=2275844be3";
+import { legend } from "../../components/legend.js?v=2275844be3";
 
 /* What the simulator holds: claims, sets, cases and how many sets pass their gates. */
 export function setStats() {

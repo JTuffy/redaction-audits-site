@@ -1,15 +1,15 @@
 /* The validator against a run: its call on each case of a simulated set the run read, and how often
    the run's judge read those cases wrong. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { pct, share } from "../../lib/format.js?v=0cb80a196f";
-import { READING } from "../../lib/labels.js?v=0cb80a196f";
-import { term } from "../../lib/tips.js?v=0cb80a196f";
-import { clearedAt, flaggedAt, readings, validatorViews, viewName } from "../../data/constants.js?v=0cb80a196f";
-import { setHref, simRunOf } from "../../data/datasets.js?v=0cb80a196f";
-import { readKey } from "../../components/bars.js?v=0cb80a196f";
-import { cell, table } from "../../components/blocks.js?v=0cb80a196f";
-import { section } from "../../components/page.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { pct, share } from "../../lib/format.js?v=2275844be3";
+import { READING } from "../../lib/labels.js?v=2275844be3";
+import { term } from "../../lib/tips.js?v=2275844be3";
+import { clearedAt, flaggedAt, readings, validatorViews, viewName } from "../../data/constants.js?v=2275844be3";
+import { setHref, simRunOf } from "../../data/datasets.js?v=2275844be3";
+import { readKey } from "../../components/bars.js?v=2275844be3";
+import { cell, table } from "../../components/blocks.js?v=2275844be3";
+import { section } from "../../components/page.js?v=2275844be3";
 
 export function validatorTable(name) {
   const hit = simRunOf(name);

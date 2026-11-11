@@ -1,11 +1,11 @@
 /* Everything the search palette can jump to: the site's pages, each Findings answer, and every
    experiment, dataset, recorded run and note. */
 
-import { datasetHref, datasets } from "./datasets.js?v=0cb80a196f";
-import { experimentHref, experiments, subQuestions } from "./experiments.js?v=0cb80a196f";
-import { notePages } from "./notes.js?v=0cb80a196f";
-import { runHref, runJudge } from "./runs.js?v=0cb80a196f";
-import { SITE } from "./site.js?v=0cb80a196f";
+import { datasetHref, datasets } from "./datasets.js?v=2275844be3";
+import { experimentHref, experiments, subQuestions } from "./experiments.js?v=2275844be3";
+import { notePages } from "./notes.js?v=2275844be3";
+import { runHref, runJudge } from "./runs.js?v=2275844be3";
+import { SITE } from "./site.js?v=2275844be3";
 
 const PAGES = [
   ["Overview", "#/"], ["Findings", "#/findings"], ["Experiments", "#/experiments"], ["Run log", "#/runs"],

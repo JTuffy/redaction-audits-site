@@ -1,13 +1,13 @@
 /* A run's setup, fixed before it ran: its data, advocate, policies, cases and judge setup, then the
    model each role used and the tokens each model spent. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { kTokens } from "../../lib/format.js?v=0cb80a196f";
-import { CONDITION, ROLE, ROLES } from "../../lib/labels.js?v=0cb80a196f";
-import { term } from "../../lib/tips.js?v=0cb80a196f";
-import { policyName, stanceName } from "../../data/constants.js?v=0cb80a196f";
-import { datasetHref, datasetOfVersion, versionOf } from "../../data/datasets.js?v=0cb80a196f";
-import { fields } from "../../components/blocks.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { kTokens } from "../../lib/format.js?v=2275844be3";
+import { CONDITION, ROLE, ROLES } from "../../lib/labels.js?v=2275844be3";
+import { term } from "../../lib/tips.js?v=2275844be3";
+import { policyName, stanceName } from "../../data/constants.js?v=2275844be3";
+import { datasetHref, datasetOfVersion, versionOf } from "../../data/datasets.js?v=2275844be3";
+import { fields } from "../../components/blocks.js?v=2275844be3";
 
 /* A run's dataset, linked: its name, and the version it read when that isn't the current one. */
 function dataLink(c) {

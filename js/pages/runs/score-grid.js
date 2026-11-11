@@ -2,15 +2,15 @@
    change, the same two scores on a 0–100 bar, and how the edited reads fare against the label.
    Sortable and filterable; it opens sorted by the largest change. */
 
-import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
-import { caseName, sc, signed } from "../../lib/format.js?v=0cb80a196f";
-import { loadGrid } from "../../lib/grid.js?v=0cb80a196f";
-import { LABELS, READING } from "../../lib/labels.js?v=0cb80a196f";
-import { themeNow } from "../../lib/theme.js?v=0cb80a196f";
-import { policyName, scoreCut, wrongWayShift } from "../../data/constants.js?v=0cb80a196f";
-import { simRunOf } from "../../data/datasets.js?v=0cb80a196f";
-import { runHref } from "../../data/runs.js?v=0cb80a196f";
-import { byCase, runPolicies } from "./samples.js?v=0cb80a196f";
+import { $, esc } from "../../lib/dom.js?v=2275844be3";
+import { caseName, sc, signed } from "../../lib/format.js?v=2275844be3";
+import { loadGrid } from "../../lib/grid.js?v=2275844be3";
+import { LABELS, READING } from "../../lib/labels.js?v=2275844be3";
+import { themeNow } from "../../lib/theme.js?v=2275844be3";
+import { policyName, scoreCut, wrongWayShift } from "../../data/constants.js?v=2275844be3";
+import { simRunOf } from "../../data/datasets.js?v=2275844be3";
+import { runHref } from "../../data/runs.js?v=2275844be3";
+import { byCase, runPolicies } from "./samples.js?v=2275844be3";
 
 const BAR = 120; // the bar's width in px
 const AUTO_HEIGHT_ROWS = 40; // up to this many cases the grid is as tall as its rows

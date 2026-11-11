@@ -1,21 +1,21 @@
 /* One set's page: a simulated set's fields and card, then its case explorer; or an archived
    benchmark set's head and tabs. */
 
-import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
-import { SOURCE } from "../../lib/labels.js?v=0cb80a196f";
-import { term } from "../../lib/tips.js?v=0cb80a196f";
-import { query, withQuery } from "../../lib/view-state.js?v=0cb80a196f";
-import { pct } from "../../lib/format.js?v=0cb80a196f";
-import { judgeName, reviewMin, shortcutMax } from "../../data/constants.js?v=0cb80a196f";
-import { currentOf, datasetHref, gateStatus } from "../../data/datasets.js?v=0cb80a196f";
-import { codeHref } from "../../data/links.js?v=0cb80a196f";
-import { ledgerEntry } from "../../data/runs.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { badge, fields, fold, subnav } from "../../components/blocks.js?v=0cb80a196f";
-import { markdown } from "../../components/markdown.js?v=0cb80a196f";
-import { pageHead } from "../../components/page.js?v=0cb80a196f";
-import { BENCH_TABS, benchPage } from "../../archive/benchmark-set.js?v=0cb80a196f";
-import { explorer, holdView } from "./explorer.js?v=0cb80a196f";
+import { $, esc } from "../../lib/dom.js?v=2275844be3";
+import { SOURCE } from "../../lib/labels.js?v=2275844be3";
+import { term } from "../../lib/tips.js?v=2275844be3";
+import { query, withQuery } from "../../lib/view-state.js?v=2275844be3";
+import { pct } from "../../lib/format.js?v=2275844be3";
+import { judgeName, reviewMin, shortcutMax } from "../../data/constants.js?v=2275844be3";
+import { currentOf, datasetHref, gateStatus } from "../../data/datasets.js?v=2275844be3";
+import { codeHref } from "../../data/links.js?v=2275844be3";
+import { ledgerEntry } from "../../data/runs.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { badge, fields, fold, subnav } from "../../components/blocks.js?v=2275844be3";
+import { markdown } from "../../components/markdown.js?v=2275844be3";
+import { pageHead } from "../../components/page.js?v=2275844be3";
+import { BENCH_TABS, benchPage } from "../../archive/benchmark-set.js?v=2275844be3";
+import { explorer, holdView } from "./explorer.js?v=2275844be3";
 
 const shownVersion = (d) => d.versions.find((v) => v.version === query().get("version")) || currentOf(d);
 

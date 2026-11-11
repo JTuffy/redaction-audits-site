@@ -2,25 +2,25 @@
    still reach the right verdict?) and secret leakage (does the secret get out anyway?). Each panel
    leads with its answer (data/answers.js), then the chart or table it rests on, folded. */
 
-import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
-import { listed, NONE, pct } from "../../lib/format.js?v=0cb80a196f";
-import { dataTip } from "../../lib/tips.js?v=0cb80a196f";
-import { query, setQuery } from "../../lib/view-state.js?v=0cb80a196f";
-import { attackName, blindGuess, byJudge, clearedAt, flaggedAt, judgeOrder, policyName, stanceName, viewKeys, viewName } from "../../data/constants.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { guessBar, readKey, readsCell } from "../../components/bars.js?v=0cb80a196f";
-import { cell, fold, num, table } from "../../components/blocks.js?v=0cb80a196f";
-import { pageHead } from "../../components/page.js?v=0cb80a196f";
-import { sourceLine } from "../../components/source.js?v=0cb80a196f";
+import { $, esc } from "../../lib/dom.js?v=2275844be3";
+import { listed, NONE, pct } from "../../lib/format.js?v=2275844be3";
+import { dataTip } from "../../lib/tips.js?v=2275844be3";
+import { query, setQuery } from "../../lib/view-state.js?v=2275844be3";
+import { attackName, blindGuess, byJudge, clearedAt, flaggedAt, judgeOrder, policyName, stanceName, viewKeys, viewName } from "../../data/constants.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { guessBar, readKey, readsCell } from "../../components/bars.js?v=2275844be3";
+import { cell, fold, num, table } from "../../components/blocks.js?v=2275844be3";
+import { pageHead } from "../../components/page.js?v=2275844be3";
+import { sourceLine } from "../../components/source.js?v=2275844be3";
 import {
   adversaryAnswer, adversaryJudge, costAnswer, costJudge, judgesAnswer, leakAnswer, leakTierAnswer, predictionAnswer, unsureAnswer,
-} from "../../data/answers.js?v=0cb80a196f";
-import { experimentHref, panelAsk } from "../../data/experiments.js?v=0cb80a196f";
-import { datasetRefHref } from "../../data/links.js?v=0cb80a196f";
-import { predictionCells, predictionDraw, predictionSource, SHAPES, shapeHead, studyShifts } from "../../data/studies.js?v=0cb80a196f";
-import { shiftChart } from "./shift-chart.js?v=0cb80a196f";
-import { tradeoffPoints } from "../../data/tradeoffs.js?v=0cb80a196f";
-import { tradeoffChart } from "../../components/tradeoff.js?v=0cb80a196f";
+} from "../../data/answers.js?v=2275844be3";
+import { experimentHref, panelAsk } from "../../data/experiments.js?v=2275844be3";
+import { datasetRefHref } from "../../data/links.js?v=2275844be3";
+import { predictionCells, predictionDraw, predictionSource, SHAPES, shapeHead, studyShifts } from "../../data/studies.js?v=2275844be3";
+import { shiftChart } from "./shift-chart.js?v=2275844be3";
+import { tradeoffPoints } from "../../data/tradeoffs.js?v=2275844be3";
+import { tradeoffChart } from "../../components/tradeoff.js?v=2275844be3";
 
 const TIER = { always_redact: "always-redact secrets", context: "case-by-case secrets" };
 /* A row's mean guess on one tier's secrets after the edit. */

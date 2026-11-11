@@ -1,13 +1,13 @@
 /* Paper: the compiled PDF, its outline and build status, refreshed while `redaction paper watch`
    rebuilds it. */
 
-import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
-import { onLeave } from "../../lib/view-state.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { countedSince } from "../../data/runs.js?v=0cb80a196f";
-import { badge } from "../../components/blocks.js?v=0cb80a196f";
-import { staleNote } from "../../components/stale.js?v=0cb80a196f";
-import { pageHead } from "../../components/page.js?v=0cb80a196f";
+import { $, esc } from "../../lib/dom.js?v=2275844be3";
+import { onLeave } from "../../lib/view-state.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { countedSince } from "../../data/runs.js?v=2275844be3";
+import { badge } from "../../components/blocks.js?v=2275844be3";
+import { staleNote } from "../../components/stale.js?v=2275844be3";
+import { pageHead } from "../../components/page.js?v=2275844be3";
 
 let paperTimer = null;
 const stopPaper = () => clearInterval(paperTimer);

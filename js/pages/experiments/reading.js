@@ -1,8 +1,8 @@
 /* Reading results: the experiment template every experiment follows, and how Findings is laid out. */
 
-import { $ } from "../../lib/dom.js?v=0cb80a196f";
-import { section } from "../../components/page.js?v=0cb80a196f";
-import { experimentsHead } from "./head.js?v=0cb80a196f";
+import { $ } from "../../lib/dom.js?v=2275844be3";
+import { section } from "../../components/page.js?v=2275844be3";
+import { experimentsHead } from "./head.js?v=2275844be3";
 
 const TEMPLATE = ["Question", "Hypothesis", "Expectations", "Design", "Progress", "Result"];
 

@@ -2,20 +2,20 @@
    case under one policy (verdicts, the finding, requests and rulings, the judge's evidence,
    secrets, prompts). Also groups a run's samples by case for the run page. */
 
-import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
-import { wordDiff } from "../../lib/diff.js?v=0cb80a196f";
-import { caseName, f2, human, sc, signed } from "../../lib/format.js?v=0cb80a196f";
-import { READING, ROLE } from "../../lib/labels.js?v=0cb80a196f";
-import { term } from "../../lib/tips.js?v=0cb80a196f";
-import { query } from "../../lib/view-state.js?v=0cb80a196f";
-import { clearedAt, flaggedAt, policyKeys, policyName, rankCase } from "../../data/constants.js?v=0cb80a196f";
-import { promptsFor } from "../../data/prompts.js?v=0cb80a196f";
-import { simRunOf } from "../../data/datasets.js?v=0cb80a196f";
-import { caseHref, ledgerEntry, runHref } from "../../data/runs.js?v=0cb80a196f";
-import { lazyJson, SITE } from "../../data/site.js?v=0cb80a196f";
-import { readKey } from "../../components/bars.js?v=0cb80a196f";
-import { badge, cell, choice, fields, fold, labelBadge, subnav, table } from "../../components/blocks.js?v=0cb80a196f";
-import { browser } from "../../components/browser.js?v=0cb80a196f";
+import { $, esc } from "../../lib/dom.js?v=2275844be3";
+import { wordDiff } from "../../lib/diff.js?v=2275844be3";
+import { caseName, f2, human, sc, signed } from "../../lib/format.js?v=2275844be3";
+import { READING, ROLE } from "../../lib/labels.js?v=2275844be3";
+import { term } from "../../lib/tips.js?v=2275844be3";
+import { query } from "../../lib/view-state.js?v=2275844be3";
+import { clearedAt, flaggedAt, policyKeys, policyName, rankCase } from "../../data/constants.js?v=2275844be3";
+import { promptsFor } from "../../data/prompts.js?v=2275844be3";
+import { simRunOf } from "../../data/datasets.js?v=2275844be3";
+import { caseHref, ledgerEntry, runHref } from "../../data/runs.js?v=2275844be3";
+import { lazyJson, SITE } from "../../data/site.js?v=2275844be3";
+import { readKey } from "../../components/bars.js?v=2275844be3";
+import { badge, cell, choice, fields, fold, labelBadge, subnav, table } from "../../components/blocks.js?v=2275844be3";
+import { browser } from "../../components/browser.js?v=2275844be3";
 
 /* A case gets the list's leak flag once a secret's leakage reaches this: page wording, not a
    measure (domain/metrics.py defines leakage, and its tail at LEAKAGE_TAIL_THRESHOLD). */

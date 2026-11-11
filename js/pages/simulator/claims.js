@@ -1,11 +1,11 @@
 /* The claim library: one card per rule file, with what decides it, its distractors and variants,
    sample records, and the sets built from it. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { datasetHref, datasetOfSet } from "../../data/datasets.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { badge, fold } from "../../components/blocks.js?v=0cb80a196f";
-import { logLines } from "../../components/logs.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { datasetHref, datasetOfSet } from "../../data/datasets.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { badge, fold } from "../../components/blocks.js?v=2275844be3";
+import { logLines } from "../../components/logs.js?v=2275844be3";
 
 const SET_NAME = { checker: "Classifier coverage: checker pilot" };
 const TIER = { hard: "Hard set", calibration: "Calibration set" };

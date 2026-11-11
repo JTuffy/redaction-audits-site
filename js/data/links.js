@@ -1,10 +1,10 @@
 /* Where a name written in a note or a set card points on the site: a recorded run, a dataset or
    one of its versions, a simulated set's folder, or a study. */
 
-import { datasetHref, datasetNamed, datasetOfSet, datasetOfVersion } from "./datasets.js?v=0cb80a196f";
-import { experimentHref } from "./experiments.js?v=0cb80a196f";
-import { runHref } from "./runs.js?v=0cb80a196f";
-import { SITE } from "./site.js?v=0cb80a196f";
+import { datasetHref, datasetNamed, datasetOfSet, datasetOfVersion } from "./datasets.js?v=2275844be3";
+import { experimentHref } from "./experiments.js?v=2275844be3";
+import { runHref } from "./runs.js?v=2275844be3";
+import { SITE } from "./site.js?v=2275844be3";
 
 /* The page a code span names, or null. Pages pass it to `markdown` as `link`. */
 export function codeHref(c) {

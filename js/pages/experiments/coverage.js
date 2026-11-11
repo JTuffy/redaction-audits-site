@@ -1,16 +1,16 @@
 /* Coverage status: what has been run on each current dataset, per lab stance and policy, by which
    judges and on how many cases of its current version. */
 
-import { $, esc } from "../../lib/dom.js?v=0cb80a196f";
-import { NONE } from "../../lib/format.js?v=0cb80a196f";
-import { term } from "../../lib/tips.js?v=0cb80a196f";
-import { judgeName, policyKeys, policyName, stanceName } from "../../data/constants.js?v=0cb80a196f";
-import { datasetHref, datasets } from "../../data/datasets.js?v=0cb80a196f";
-import { runHref } from "../../data/runs.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { table } from "../../components/blocks.js?v=0cb80a196f";
-import { section } from "../../components/page.js?v=0cb80a196f";
-import { experimentsHead } from "./head.js?v=0cb80a196f";
+import { $, esc } from "../../lib/dom.js?v=2275844be3";
+import { NONE } from "../../lib/format.js?v=2275844be3";
+import { term } from "../../lib/tips.js?v=2275844be3";
+import { judgeName, policyKeys, policyName, stanceName } from "../../data/constants.js?v=2275844be3";
+import { datasetHref, datasets } from "../../data/datasets.js?v=2275844be3";
+import { runHref } from "../../data/runs.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { table } from "../../components/blocks.js?v=2275844be3";
+import { section } from "../../components/page.js?v=2275844be3";
+import { experimentsHead } from "./head.js?v=2275844be3";
 
 function coverageGrid() {
   const rows = (SITE.coverage || []).filter((r) => r.stance);

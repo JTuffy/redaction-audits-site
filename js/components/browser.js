@@ -2,7 +2,7 @@
    cases. The list is a listbox: click, Enter or Space picks an item, the arrows, Home and End move
    the choice, and only the chosen item is in the tab order. */
 
-import { $, esc, optionAttrs, wireListbox } from "../lib/dom.js?v=0cb80a196f";
+import { $, esc, optionAttrs, wireListbox } from "../lib/dom.js?v=2275844be3";
 
 /* `items` are { id, html, chosen }; `detail` is the chosen item's markup. `listCls` and
    `detailCls` add the page's own classes. */

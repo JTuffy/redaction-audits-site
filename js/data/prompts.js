@@ -1,7 +1,7 @@
 /* The prompt templates (harness/roles/prompts, sent as SITE.prompts), by the role each is written
    for, read from its name. */
 
-import { SITE } from "./site.js?v=0cb80a196f";
+import { SITE } from "./site.js?v=2275844be3";
 
 /* Role -> the templates written for it, in display order (domain/roles names the roles). */
 const OWNS = [

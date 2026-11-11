@@ -1,25 +1,25 @@
 /* The page's entry module: the router, old-link redirects and boot. Fetches data/site.json, then
    routes. Each tab's pages live in pages/<tab>/. */
 
-import { $, esc } from "./lib/dom.js?v=0cb80a196f";
-import { wireTheme } from "./lib/theme.js?v=0cb80a196f";
-import { setGlossary } from "./lib/tips.js?v=0cb80a196f";
-import { leavePage, setRouter } from "./lib/view-state.js?v=0cb80a196f";
-import { searchEntries } from "./data/search.js?v=0cb80a196f";
-import { setSite, SITE } from "./data/site.js?v=0cb80a196f";
-import { wirePalette } from "./components/palette.js?v=0cb80a196f";
-import { pageOverview } from "./pages/overview/index.js?v=0cb80a196f";
-import { pageSimulator } from "./pages/simulator/index.js?v=0cb80a196f";
-import { pageHarness } from "./pages/harness/index.js?v=0cb80a196f";
-import { pageExperiments } from "./pages/experiments/index.js?v=0cb80a196f";
-import { pageCoverage } from "./pages/experiments/coverage.js?v=0cb80a196f";
-import { pageReading } from "./pages/experiments/reading.js?v=0cb80a196f";
-import { pageRuns } from "./pages/experiments/run-log.js?v=0cb80a196f";
-import { pageRun } from "./pages/runs/run.js?v=0cb80a196f";
-import { pageAblation } from "./pages/runs/ablation.js?v=0cb80a196f";
-import { pageFindings } from "./pages/findings/index.js?v=0cb80a196f";
-import { pageNotes } from "./pages/notes/index.js?v=0cb80a196f";
-import { pagePaper } from "./pages/paper/index.js?v=0cb80a196f";
+import { $, esc } from "./lib/dom.js?v=2275844be3";
+import { wireTheme } from "./lib/theme.js?v=2275844be3";
+import { setGlossary } from "./lib/tips.js?v=2275844be3";
+import { leavePage, setRouter } from "./lib/view-state.js?v=2275844be3";
+import { searchEntries } from "./data/search.js?v=2275844be3";
+import { setSite, SITE } from "./data/site.js?v=2275844be3";
+import { wirePalette } from "./components/palette.js?v=2275844be3";
+import { pageOverview } from "./pages/overview/index.js?v=2275844be3";
+import { pageSimulator } from "./pages/simulator/index.js?v=2275844be3";
+import { pageHarness } from "./pages/harness/index.js?v=2275844be3";
+import { pageExperiments } from "./pages/experiments/index.js?v=2275844be3";
+import { pageCoverage } from "./pages/experiments/coverage.js?v=2275844be3";
+import { pageReading } from "./pages/experiments/reading.js?v=2275844be3";
+import { pageRuns } from "./pages/experiments/run-log.js?v=2275844be3";
+import { pageRun } from "./pages/runs/run.js?v=2275844be3";
+import { pageAblation } from "./pages/runs/ablation.js?v=2275844be3";
+import { pageFindings } from "./pages/findings/index.js?v=2275844be3";
+import { pageNotes } from "./pages/notes/index.js?v=2275844be3";
+import { pagePaper } from "./pages/paper/index.js?v=2275844be3";
 
 /* ---------- Old links ----------
    Old path -> new path. A key ending in /* also matches everything under it, and the rest of the

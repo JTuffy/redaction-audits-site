@@ -1,8 +1,8 @@
 /* Datasets (research/datasets.toml, shaped by site/datasets.py) and the simulated sets behind them. */
 
-import { withQuery } from "../lib/view-state.js?v=0cb80a196f";
-import { SITE } from "./site.js?v=0cb80a196f";
-import { SHAPES } from "./studies.js?v=0cb80a196f";
+import { withQuery } from "../lib/view-state.js?v=2275844be3";
+import { SITE } from "./site.js?v=2275844be3";
+import { SHAPES } from "./studies.js?v=2275844be3";
 
 export const datasets = () => SITE.datasets || [];
 export const datasetNamed = (name) => datasets().find((d) => d.name === name) || null;

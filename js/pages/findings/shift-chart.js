@@ -1,14 +1,14 @@
 /* The prediction test's chart: one row per kind of case, the predicted side shaded, and each judge's
    score shift as a mark with its 95% interval. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { signed } from "../../lib/format.js?v=0cb80a196f";
-import { dataTip } from "../../lib/tips.js?v=0cb80a196f";
-import { judgeRank } from "../../data/constants.js?v=0cb80a196f";
-import { cell, table } from "../../components/blocks.js?v=0cb80a196f";
-import { judgeClass, judgeMark, judgeSwatch } from "../../components/judge-marks.js?v=0cb80a196f";
-import { legend, swatch } from "../../components/legend.js?v=0cb80a196f";
-import { predictionCells, SHAPES, shapeHead } from "../../data/studies.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { signed } from "../../lib/format.js?v=2275844be3";
+import { dataTip } from "../../lib/tips.js?v=2275844be3";
+import { judgeRank } from "../../data/constants.js?v=2275844be3";
+import { cell, table } from "../../components/blocks.js?v=2275844be3";
+import { judgeClass, judgeMark, judgeSwatch } from "../../components/judge-marks.js?v=2275844be3";
+import { legend, swatch } from "../../components/legend.js?v=2275844be3";
+import { predictionCells, SHAPES, shapeHead } from "../../data/studies.js?v=2275844be3";
 
 const WAY = { "-1": "toward cleared", "1": "toward guilty", "0": "no change" };
 export function shiftChart(js) {

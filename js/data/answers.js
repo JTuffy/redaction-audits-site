@@ -7,10 +7,10 @@
    This file only words them; the one cut it prints (the readable-secret guess) comes through
    `constants`. */
 
-import { esc } from "../lib/dom.js?v=0cb80a196f";
-import { inWords, listed, pct, share } from "../lib/format.js?v=0cb80a196f";
-import { attackName, byJudge, readableAt, viewName } from "./constants.js?v=0cb80a196f";
-import { SITE } from "./site.js?v=0cb80a196f";
+import { esc } from "../lib/dom.js?v=2275844be3";
+import { inWords, listed, pct, share } from "../lib/format.js?v=2275844be3";
+import { attackName, byJudge, readableAt, viewName } from "./constants.js?v=2275844be3";
+import { SITE } from "./site.js?v=2275844be3";
 
 const findings = () => SITE.results?.findings || {};
 const right = (t) => share(t?.right, t?.reads);

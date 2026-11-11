@@ -1,16 +1,16 @@
 /* Who a run is, the same on every run page: its breadcrumbs, its labelled fields, an ablation's
    sub line, and the link to its transcripts. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { caseName, dayOf, timeOf, when } from "../../lib/format.js?v=0cb80a196f";
-import { glossaryEntry, term } from "../../lib/tips.js?v=0cb80a196f";
-import { query } from "../../lib/view-state.js?v=0cb80a196f";
-import { policyName, stanceName } from "../../data/constants.js?v=0cb80a196f";
-import { datasetHref, datasetOfVersion, versionOf } from "../../data/datasets.js?v=0cb80a196f";
-import { experimentHref, experimentOf } from "../../data/experiments.js?v=0cb80a196f";
-import { runFlags, runHref, runJudge, shortCommit } from "../../data/runs.js?v=0cb80a196f";
-import { SITE } from "../../data/site.js?v=0cb80a196f";
-import { badge, fields } from "../../components/blocks.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { caseName, dayOf, timeOf, when } from "../../lib/format.js?v=2275844be3";
+import { glossaryEntry, term } from "../../lib/tips.js?v=2275844be3";
+import { query } from "../../lib/view-state.js?v=2275844be3";
+import { policyName, stanceName } from "../../data/constants.js?v=2275844be3";
+import { datasetHref, datasetOfVersion, versionOf } from "../../data/datasets.js?v=2275844be3";
+import { experimentHref, experimentOf } from "../../data/experiments.js?v=2275844be3";
+import { runFlags, runHref, runJudge, shortCommit } from "../../data/runs.js?v=2275844be3";
+import { SITE } from "../../data/site.js?v=2275844be3";
+import { badge, fields } from "../../components/blocks.js?v=2275844be3";
 
 /* A run's breadcrumbs: experiment › run, and › case when a case is open. A run no experiment owns
    sits under the run log. */

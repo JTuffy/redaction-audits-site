@@ -4,7 +4,7 @@
    - dataTip(html): the values behind a mark or cell (chart rows, shaded cells). No underline.
    Shown after a short delay on hover or keyboard focus; tap toggles on touch; Escape hides. */
 
-import { esc } from "./dom.js?v=0cb80a196f";
+import { esc } from "./dom.js?v=2275844be3";
 
 let terms = {};
 let constants = {};

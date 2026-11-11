@@ -2,14 +2,14 @@
    by violation type. The tables come computed from Python (domain/sample_metrics.py): one
    definition per number. */
 
-import { esc } from "../../lib/dom.js?v=0cb80a196f";
-import { f2, human } from "../../lib/format.js?v=0cb80a196f";
-import { SETS } from "../../lib/labels.js?v=0cb80a196f";
-import { term } from "../../lib/tips.js?v=0cb80a196f";
-import { policyName } from "../../data/constants.js?v=0cb80a196f";
-import { leakageInvalid } from "../../data/runs.js?v=0cb80a196f";
-import { badge, fold, num, table } from "../../components/blocks.js?v=0cb80a196f";
-import { section } from "../../components/page.js?v=0cb80a196f";
+import { esc } from "../../lib/dom.js?v=2275844be3";
+import { f2, human } from "../../lib/format.js?v=2275844be3";
+import { SETS } from "../../lib/labels.js?v=2275844be3";
+import { term } from "../../lib/tips.js?v=2275844be3";
+import { policyName } from "../../data/constants.js?v=2275844be3";
+import { leakageInvalid } from "../../data/runs.js?v=2275844be3";
+import { badge, fold, num, table } from "../../components/blocks.js?v=2275844be3";
+import { section } from "../../components/page.js?v=2275844be3";
 
 function resultsTable(r) {
   const noLeak = leakageInvalid(r.name); // the dataset fails its leakage check: no number to show
